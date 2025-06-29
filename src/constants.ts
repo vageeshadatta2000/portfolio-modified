@@ -1,5 +1,3 @@
-// src/constants.ts
-
 import { NavLink, Education, Experience, Project, Skill, CodeSnippet, LearningItem } from './types';
 
 export const NAV_LINKS: NavLink[] = [
@@ -12,9 +10,9 @@ export const NAV_LINKS: NavLink[] = [
     { id: 'contact', title: 'Contact' },
 ];
 
-export const PROFILE = `I'm a passionate ML researcher and full-stack engineer with a deep focus on system performance, LLM applications, and scalable AI architectures. This portfolio is a window into my technical journey, research innovations, and engineering craftsmanship.`;
+export const PROFILE = `I am a Computer Science graduate student at The University of Texas at Dallas with a passion for building intelligent systems. My experience spans from AI research in LLM performance to developing scalable full-stack applications and microservices.`;
 
-export const ABOUT = `I recently graduated from The University of Texas at Dallas with an MS in Computer Science, specializing in Intelligent Systems. I have hands-on experience in ML pipelines, generative AI, and full-stack web development. My expertise lies at the intersection of model optimization, interpretability, and real-world deployment. I build AI systems that are performant, interpretable, and scalable — from LLM agents to cloud-native services.`;
+export const ABOUT = `With a Master's in Computer Science (CGPA: 3.6/4.0) from UT Dallas, my focus lies in Machine Learning, NLP, and AI. I have hands-on experience as an AI Researcher at the Allen Institute for AI (AI2), a Software Engineer Intern at Rocktop Technologies, and a Software Engineer at Fiserv, where I built and deployed generative AI and large-scale data solutions. I thrive on solving complex problems, from optimizing LLM reasoning to designing robust RAG pipelines for real-world applications.`;
 
 export const EDUCATION: Education[] = [
     {
@@ -22,7 +20,13 @@ export const EDUCATION: Education[] = [
         degree: 'Master of Science in Computer Science',
         period: 'Aug 2022 – May 2025',
         gpa: '3.6/4.0',
-        courses: 'Machine Learning, Artificial Intelligence, Computer Vision, Natural Language Processing, Statistics in AI and ML, Operating Systems, Design and Analysis of Algorithms'
+        courses: 'Machine Learning, Artificial Intelligence, Computer Vision, Natural Language Processing, Statistics in AI and ML'
+    },
+    {
+        institution: 'SRM University, AP',
+        degree: 'Bachelor of Technology in Computer Science and Engineering',
+        period: 'Aug 2018 – June 2022',
+        gpa: '9.06/10.00'
     }
 ];
 
@@ -32,10 +36,9 @@ export const EXPERIENCE: Experience[] = [
         company: 'Allen Institute for AI (AI2)',
         period: 'Jan 2025 - May 2025',
         points: [
-            'Implemented Optimization by Prompting (OPRO) to enhance few-shot performance in LLMs, improving hypothesis generation accuracy by 12%.',
-            'Created belief-tracking and uncertainty quantification modules using entropy and KL divergence to monitor confidence dynamics.',
-            'Developed a D3.js visualization platform to analyze the evolution of model beliefs over reasoning chains.',
-            'Integrated AutoGen-based reasoning loops to simulate iterative self-verification in LLMs.'
+            'Implemented Optimization by Prompting (OPRO) for test-time LLM steering, boosting hypothesis generation accuracy by 12%.',
+            'Built a belief-tracking and uncertainty quantification framework using AutoGen and binomial modeling.',
+            'Developed an interactive D3.js experiment tree to visualize belief evolution in LLMs and accelerate debugging.'
         ]
     },
     {
@@ -43,75 +46,74 @@ export const EXPERIENCE: Experience[] = [
         company: 'Rocktop Technologies',
         period: 'Sep 2023 - July 2024',
         points: [
-            'Developed and deployed microservices using PyTorch and Flask to serve fine-tuned LLMs, reducing analysis time by over 30%.',
-            'Built scalable Retrieval-Augmented Generation (RAG) pipelines using FAISS and LangChain.',
-            'Designed NLP-based natural language query systems with under 100ms response latency.',
-            'Prototyped Dockerized, quantized LLM agents with simulated edge deployment.'
+            'Developed and optimized microservices using Python and PyTorch to implement generative AI agents, reducing manual processing time by 30%.',
+            'Designed and deployed RESTful APIs with Flask to serve AI-generated insights for risk evaluation.',
+            'Integrated NLP-based query modules to build conversational interfaces for non-technical users.',
+            'Conducted rigorous testing and deployment of AI-driven anomaly detection pipelines.'
         ]
     },
-    {
-        role: 'Graduate Researcher',
-        company: 'Computer Vision and Multimodal Computing (CVMC) Lab, UT Dallas',
-        period: 'Nov 2022 - Aug 2023',
+     {
+        role: 'Software Engineer',
+        company: 'Fiserv',
+        period: 'Dec 2020 - May 2022',
         points: [
-            'Optimized CUDA kernels and multi-GPU training loops for T2AV, achieving a 27% reduction in inference time.',
-            'Engineered real-time diagnostic tools for attention heatmaps, spectrograms, and latent vectors.',
-            'Co-developed T2AV-Bench, a distributed contrastive benchmarking framework with GPU fault-tolerance.',
-            'Built analysis pipelines to track embedding drift and modality collapse during training.'
+            'Orchestrated the deployment of Kafka-based microservices using Jenkins CI/CD and CockroachDB for 166,000+ users.',
+            'Implemented Prometheus and Grafana for real-time observability, improving uptime and minimizing incidents.',
+            'Developed a React.js and Spring Boot security dashboard, saving 10+ hours weekly.',
+            'Refactored legacy UI using Material UI, containerized with Docker, and deployed to AWS EC2, reducing support tickets by 25%.'
         ]
-    },
+    }
 ];
 
 export const PROJECTS: Project[] = [
     {
-        title: 'Persona Weaver (In Progress)',
-        description: 'A full-stack system using Python and FastAPI to create and chat with customizable AI personas with multi-trait conditioning.',
-        detailedDescription: 'Designing a full-stack system using Python and FastAPI to create and chat with customizable AI personas, with multi-trait conditioning and Gemini Pro-powered dialogue generation. Actively building dynamic prompt logic and memory-based multi-turn flow to support persistent, context-aware conversations aligned with user-defined identity, tone, and behavior.',
-        learnings: [
-            'Designing multi-trait conditioning for persona generation.',
-            'Implementing memory-based context for multi-turn conversations.',
-            'Using FastAPI for scalable AI-driven backends.'
-        ],
-        repoUrl: 'https://github.com/vageeshadatta2000/Persona-Weaver', // <-- TODO: Update with your actual repo URL
-        imageSeed: 'PersonaWeaver',
-        tags: ['FastAPI', 'Python', 'Gemini Pro', 'AI Personas']
-    },
-    {
         title: 'InsightBridge: LLM Document Analysis Tool',
-        description: 'A recursive text chunking pipeline with LangChain and FAISS for efficient semantic retrieval from long-form documents.',
-        detailedDescription: 'Designed and implemented a recursive text chunking pipeline with LangChain\'s RecursiveCharacterTextSplitter, enabling efficient vectorization and semantic retrieval from long-form documents. Integrated FAISS-based vector store for low-latency dense retrieval and constructed a Retrieval-Augmented Generation (RAG) chain with ChatOpenAI to produce grounded, context-aware responses.',
+        description: 'An LLM-powered tool with a recursive text chunking pipeline (LangChain) and FAISS vector store for semantic retrieval.',
+        detailedDescription: "Designed and implemented a recursive text chunking pipeline with LangChain's RecursiveCharacterTextSplitter, enabling efficient vectorization and semantic retrieval from long-form documents. Integrated a FAISS-based vector store for low-latency dense retrieval and constructed a Retrieval-Augmented Generation (RAG) chain with ChatOpenAI to produce grounded, context-aware responses.",
         learnings: [
             'Implementing recursive text chunking for optimal vectorization.',
             'Integrating FAISS for low-latency vector storage and retrieval.',
             'Building end-to-end RAG pipelines with LangChain and OpenAI models.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/InsightBridge', // <-- TODO: Update with your actual repo URL
+        repoUrl: 'https://github.com/vageeshadatta2000/InsightBridge',
         imageSeed: 'InsightBridge',
         tags: ['LangChain', 'FAISS', 'RAG', 'ChatOpenAI']
     },
     {
         title: 'MediQuery: Instruction-Tuned Healthcare Chatbot',
-        description: 'A modular React and Flask application with real-time chat, using FAISS and SentenceTransformers for dense retrieval.',
+        description: 'A modular React and Flask app with real-time chat, using FAISS and SentenceTransformers for dense retrieval and 19% accuracy boost.',
         detailedDescription: 'Developed a modular React frontend with real-time chat interface, integrating complex state management and optimized GPU batch inference for sub-second response times. Implemented backend Flask APIs using FAISS and SentenceTransformers for dense retrieval, enhancing contextual accuracy by 19% via RAG-based instruction tuning.',
         learnings: [
             'Integrating React with a Flask ML backend.',
             'Optimizing GPU batch inference for real-time applications.',
             'Enhancing retrieval accuracy with RAG-based instruction tuning.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/MediQuery', // <-- TODO: Update with your actual repo URL
+        repoUrl: 'https://github.com/vageeshadatta2000/MediQuery',
         imageSeed: 'MediQuery',
         tags: ['React', 'Flask', 'SentenceTransformers', 'FAISS']
+    },
+    {
+        title: 'StreamStyle: Real-time Video Style Transfer',
+        description: 'Scalable platform using React, Flask, Docker, and AWS EC2 to apply style transfer to video streams with 50% less flickering.',
+        detailedDescription: 'Engineered a React frontend featuring efficient video upload, processing status updates, and live previews. Created scalable Flask REST APIs deployed on AWS EC2 with Docker, leveraging AdaIN and mixed-precision training to reduce inference flickering by 50% and computation overhead by 15%.',
+        learnings: [
+            'Handling real-time video data streams between client and server.',
+            'Deploying ML models in a scalable way using Docker and AWS.',
+            'Applying model optimization techniques like mixed-precision training.'
+        ],
+        repoUrl: 'https://github.com/vageeshadatta2000/StreamStyle',
+        imageSeed: 'StreamStyle',
+        tags: ['React', 'Flask', 'Docker', 'AWS', 'AdaIN']
     },
 ];
 
 export const SKILLS: Skill[] = [
     { category: 'Languages', list: ['Python', 'JavaScript', 'TypeScript', 'C++', 'SQL', 'Bash', 'HTML', 'CSS'] },
-    { category: 'Frameworks', list: ['PyTorch', 'TensorFlow', 'Flask', 'FastAPI', 'React', 'LangChain', 'AutoGen', 'D3.js', 'FAISS', 'Material UI'] },
-    { category: 'Tools', list: ['Docker', 'AWS', 'Git', 'Jenkins', 'Prometheus', 'Grafana', 'REST APIs', 'Unix/Linux', 'Terraform', 'Kafka', 'CockroachDB'] }
+    { category: 'Frameworks', list: ['PyTorch', 'TensorFlow', 'Flask', 'FastAPI', 'React', 'Angular', 'Spring Boot', 'Material UI', 'AutoGen', 'D3.js'] },
+    { category: 'Tools', list: ['Docker', 'AWS', 'Terraform', 'Jenkins', 'Kafka', 'CockroachDB', 'Git', 'Prometheus', 'Grafana', 'Unix/Linux', 'REST APIs', 'FAISS'] }
 ];
 
 export const CODE_SNIPPETS: CodeSnippet[] = [
-    // You can keep these or update them with your own code snippets
     {
         language: 'Python',
         title: 'FastAPI RAG Endpoint',
@@ -146,8 +148,7 @@ function useApi<T>(url: string) {
       try {
         const response = await fetch(url);
         if (!response.ok) throw new Error(response.statusText);
-        const json = await response.json();
-        setData(json);
+        setData(await response.json());
       } catch (e) {
         setError(e as Error);
       } finally {
@@ -179,7 +180,7 @@ export const WHAT_IM_LEARNING: LearningItem[] = [
 
 export const CONTACT_INFO = {
     email: 'vageeshadattag@gmail.com',
-    linkedin: 'https://linkedin.com/in/vageesha-datta-ganapaneni', // <-- Update with full URL if different
+    linkedin: 'https://www.linkedin.com/in/vageesha-datta-ganapaneni-094ab7184/',
     github: 'https://github.com/vageeshadatta2000'
 };
 
@@ -188,6 +189,6 @@ Vageesha Datta Ganapaneni's Profile: ${PROFILE}
 About Vageesha: ${ABOUT}
 Education: ${JSON.stringify(EDUCATION)}
 Work Experience: ${JSON.stringify(EXPERIENCE)}
-Projects: ${JSON.stringify(PROJECTS)}
+Projects: ${JSON.stringify(PROJECTS.map(p => ({title: p.title, description: p.description})))}
 Technical Skills: ${JSON.stringify(SKILLS)}
 `;
