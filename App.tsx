@@ -70,7 +70,7 @@ const App = () => {
                             <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{PROFILE}</p>
                         </div>
                         <div className="relative w-48 h-48 md:w-60 md:h-60 flex-shrink-0">
-                            <img src="https://picsum.photos/seed/vageesha/240/240" alt="Vageesha Datta" className="w-full h-full rounded-full object-cover shadow-xl border-4 border-white dark:border-slate-800" />
+                            <img src="/Myimage.jpeg" alt="Vageesha Datta" className="w-full h-full rounded-full object-cover shadow-xl border-4 border-white dark:border-slate-800" />
                              <div className="absolute inset-0 rounded-full border-4 border-indigo-500 animate-subtle-pulse"></div>
                         </div>
                     </div>
