@@ -70,7 +70,7 @@ const App = () => {
                             <p className="text-lg text-slate-600 dark:text-slate-300 leading-relaxed">{PROFILE}</p>
                         </div>
                         <div className="relative w-48 h-48 md:w-60 md:h-60 flex-shrink-0">
-                            <img src="/Myimage.jpeg" alt="Vageesha Datta" className="w-full h-full rounded-full object-cover shadow-xl border-4 border-white dark:border-slate-800" />
+                            <img src="/profile.jpg" alt="Vageesha Datta" className="w-full h-full rounded-full object-cover shadow-xl border-4 border-white dark:border-slate-800" />
                              <div className="absolute inset-0 rounded-full border-4 border-indigo-500 animate-subtle-pulse"></div>
                         </div>
                     </div>
@@ -122,7 +122,7 @@ const App = () => {
                             </a>
                         </div>
                         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                            <a href="/MyResume.pdf" download="MyResume.pdf" className="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition-all">
+                            <a href="/Vageesha_Ganapaneni_Resume.pdf" download="Vageesha_Ganapaneni_Resume.pdf" className="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition-all">
                                 <DownloadIcon className="w-5 h-5"/>
                                 Download Resume
                             </a>
@@ -140,7 +140,7 @@ const App = () => {
             </footer>
 
             {showResume && (
-                <ResumeViewer url="/MyResume.pdf" onClose={() => setShowResume(false)} />
+                <ResumeViewer url="/Vageesha_Ganapaneni_Resume.pdf" onClose={() => setShowResume(false)} />
             )}
             
             {selectedProject && (
