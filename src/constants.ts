@@ -10,9 +10,9 @@ export const NAV_LINKS: NavLink[] = [
     { id: 'contact', title: 'Contact' },
 ];
 
-export const PROFILE = `I am a Computer Science graduate student at The University of Texas at Dallas with a passion for building intelligent systems. My experience spans from AI research in LLM performance to developing scalable full-stack applications and microservices.`;
+export const PROFILE = `I am currently seeking full-time opportunities in generative AI, machine learning, and full-stack development, where I can apply my experience to build impactful, production-ready systems.`;
 
-export const ABOUT = `With a Master's in Computer Science (CGPA: 3.6/4.0) from UT Dallas, my focus lies in Machine Learning, NLP, and AI. I have hands-on experience as an AI Researcher at the Allen Institute for AI (AI2), a Software Engineer Intern at Rocktop Technologies, and a Software Engineer at Fiserv, where I built and deployed generative AI and large-scale data solutions. I thrive on solving complex problems, from optimizing LLM reasoning to designing robust RAG pipelines for real-world applications.`;
+export const ABOUT = `I am passionate about building practical, end-to-end AI systems that solve real-world problems. My recent experience spans developing generative AI tools for financial data analysis, designing instruction-tuned chatbots for healthcare, and building scalable full-stack applications using frameworks like Flask, React, and AWS. I enjoy working across the stack—from optimizing model inference and API design to crafting responsive user interfaces—because it allows me to turn complex ideas into usable, impactful products. What drives me is the challenge of creating systems that are both technically sound and meaningfully integrated into how people work and interact with technology.`;
 
 export const EDUCATION: Education[] = [
     {
