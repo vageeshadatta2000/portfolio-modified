@@ -35,7 +35,7 @@ export const EXPERIENCE: Experience[] = [
     {
         role: 'AI Researcher',
         company: 'Allen Institute for AI',
-        period: 'Jun 2023 - Present',
+        period: 'Jan 2025 - May 2025',
         points: [
             'Implemented OPRO to enhance few-shot inference quality by 12%.',
             'Built belief-tracking framework using entropy, KL divergence, and AutoGen.',
@@ -45,7 +45,7 @@ export const EXPERIENCE: Experience[] = [
     {
         role: 'Software Engineer Intern',
         company: 'Rocktop Technologies',
-        period: 'Jan 2023 - May 2023',
+        period: 'Sep 2023 - July 2024',
         points: [
             'Built generative AI microservices in Python for financial data analysis.',
             'Developed NLP-based conversational search and Flask APIs.'
@@ -54,7 +54,7 @@ export const EXPERIENCE: Experience[] = [
     {
         role: 'Software Engineer',
         company: 'Fiserv',
-        period: 'Jul 2021 - Jul 2022',
+        period: 'Dec 2020 - May 2022',
         points: [
             'Deployed Kafka-based microservices with Jenkins CI/CD and CockroachDB.',
             'Built real-time React + Spring Boot dashboards and integrated observability with Prometheus + Grafana.',
@@ -62,13 +62,13 @@ export const EXPERIENCE: Experience[] = [
         ]
     },
     {
-        role: 'ML Intern',
+        role: 'Machine Learning Intern',
         company: 'Madras Scientific Research Foundation',
-        period: 'Apr 2021 - Jun 2021',
+        period: 'Apr 2020 - Aug 2020',
         points: [
             'Engineered TensorFlow-based Dense Rebar Recognition, reducing inference time by 20%.',
             'Achieved 98% model accuracy with QA compliance and checkpointing.',
-            'Designed GPU-ready preprocessing pipelines using NumPy + TF.'
+            'Designed GPU-ready preprocessing pipelines using NumPy + TensorFlow.'
         ]
     }
 ];
