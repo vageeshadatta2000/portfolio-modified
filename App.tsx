@@ -122,7 +122,7 @@ const App = () => {
                             </a>
                         </div>
                         <div className="mt-10 flex flex-col sm:flex-row justify-center gap-4">
-                            <a href="/MyResume.pdf" download="Vageesha_Datta_Ganapaneni_Resume.pdf" className="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition-all">
+                            <a href="/MyResume.pdf" download="MyResume.pdf" className="inline-flex items-center justify-center gap-2 px-6 py-3 font-semibold text-white bg-indigo-600 rounded-lg shadow-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:bg-indigo-500 dark:hover:bg-indigo-600 transition-all">
                                 <DownloadIcon className="w-5 h-5"/>
                                 Download Resume
                             </a>
