@@ -1,3 +1,5 @@
+// src/constants.ts
+
 import { NavLink, Education, Experience, Project, Skill, CodeSnippet, LearningItem } from './types';
 
 export const NAV_LINKS: NavLink[] = [
@@ -20,123 +22,96 @@ export const EDUCATION: Education[] = [
         degree: 'Master of Science in Computer Science',
         period: 'Aug 2022 – May 2025',
         gpa: '3.6/4.0',
-        courses: 'Machine Learning, Natural Language Processing, Computer Vision, Artificial Intelligence, Statistics in AI & ML'
-    },
-    {
-        institution: 'SRM University, AP',
-        degree: 'Bachelor of Technology in Computer Science and Engineering',
-        period: 'Aug 2018 – June 2022',
-        gpa: '9.06/10.00'
+        courses: 'Machine Learning, Artificial Intelligence, Computer Vision, Natural Language Processing, Statistics in AI and ML, Operating Systems, Design and Analysis of Algorithms'
     }
 ];
 
 export const EXPERIENCE: Experience[] = [
     {
         role: 'AI Researcher',
-        company: 'Allen Institute for AI',
-        period: 'Jun 2023 - Present',
+        company: 'Allen Institute for AI (AI2)',
+        period: 'Jan 2025 - May 2025',
         points: [
-            'Implemented OPRO to enhance few-shot inference quality by 12%.',
-            'Built belief-tracking framework using entropy, KL divergence, and AutoGen.',
-            'Developed interactive D3.js experiment visualizations for LLM debugging.'
+            'Implemented Optimization by Prompting (OPRO) to enhance few-shot performance in LLMs, improving hypothesis generation accuracy by 12%.',
+            'Created belief-tracking and uncertainty quantification modules using entropy and KL divergence to monitor confidence dynamics.',
+            'Developed a D3.js visualization platform to analyze the evolution of model beliefs over reasoning chains.',
+            'Integrated AutoGen-based reasoning loops to simulate iterative self-verification in LLMs.'
         ]
     },
     {
         role: 'Software Engineer Intern',
         company: 'Rocktop Technologies',
-        period: 'Jan 2023 - May 2023',
+        period: 'Sep 2023 - July 2024',
         points: [
-            'Built generative AI microservices in Python for financial data analysis.',
-            'Developed NLP-based conversational search and Flask APIs.'
+            'Developed and deployed microservices using PyTorch and Flask to serve fine-tuned LLMs, reducing analysis time by over 30%.',
+            'Built scalable Retrieval-Augmented Generation (RAG) pipelines using FAISS and LangChain.',
+            'Designed NLP-based natural language query systems with under 100ms response latency.',
+            'Prototyped Dockerized, quantized LLM agents with simulated edge deployment.'
         ]
     },
     {
-        role: 'Software Engineer',
-        company: 'Fiserv',
-        period: 'Jul 2021 - Jul 2022',
+        role: 'Graduate Researcher',
+        company: 'Computer Vision and Multimodal Computing (CVMC) Lab, UT Dallas',
+        period: 'Nov 2022 - Aug 2023',
         points: [
-            'Deployed Kafka-based microservices with Jenkins CI/CD and CockroachDB.',
-            'Built real-time React + Spring Boot dashboards and integrated observability with Prometheus + Grafana.',
-            'Refactored frontend with Docker and deployed to AWS EC2, reducing tickets by 25%.'
+            'Optimized CUDA kernels and multi-GPU training loops for T2AV, achieving a 27% reduction in inference time.',
+            'Engineered real-time diagnostic tools for attention heatmaps, spectrograms, and latent vectors.',
+            'Co-developed T2AV-Bench, a distributed contrastive benchmarking framework with GPU fault-tolerance.',
+            'Built analysis pipelines to track embedding drift and modality collapse during training.'
         ]
     },
-    {
-        role: 'ML Intern',
-        company: 'Madras Scientific Research Foundation',
-        period: 'Apr 2021 - Jun 2021',
-        points: [
-            'Engineered TensorFlow-based Dense Rebar Recognition, reducing inference time by 20%.',
-            'Achieved 98% model accuracy with QA compliance and checkpointing.',
-            'Designed GPU-ready preprocessing pipelines using NumPy + TF.'
-        ]
-    }
 ];
 
 export const PROJECTS: Project[] = [
     {
-        title: 'InsightBridge',
-        description: 'Semantic document analysis pipeline using LangChain, FAISS, and RAG for context-aware, grounded answers.',
-        detailedDescription: 'InsightBridge is a powerful semantic search and question-answering system built for complex documents. It leverages LangChain to orchestrate a Retrieval-Augmented Generation (RAG) pipeline, using a FAISS vector store for efficient similarity search and OpenAI\'s models to generate answers that are both contextually relevant and grounded in the source material.',
+        title: 'Persona Weaver (In Progress)',
+        description: 'A full-stack system using Python and FastAPI to create and chat with customizable AI personas with multi-trait conditioning.',
+        detailedDescription: 'Designing a full-stack system using Python and FastAPI to create and chat with customizable AI personas, with multi-trait conditioning and Gemini Pro-powered dialogue generation. Actively building dynamic prompt logic and memory-based multi-turn flow to support persistent, context-aware conversations aligned with user-defined identity, tone, and behavior.',
         learnings: [
-            'Implementing efficient RAG pipelines from scratch.',
-            'Optimizing vector search with FAISS indexing.',
-            'Managing context and prompt engineering for grounded generation.'
+            'Designing multi-trait conditioning for persona generation.',
+            'Implementing memory-based context for multi-turn conversations.',
+            'Using FastAPI for scalable AI-driven backends.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/InsightBridge',
+        repoUrl: 'https://github.com/vageeshadatta2000/Persona-Weaver', // <-- TODO: Update with your actual repo URL
+        imageSeed: 'PersonaWeaver',
+        tags: ['FastAPI', 'Python', 'Gemini Pro', 'AI Personas']
+    },
+    {
+        title: 'InsightBridge: LLM Document Analysis Tool',
+        description: 'A recursive text chunking pipeline with LangChain and FAISS for efficient semantic retrieval from long-form documents.',
+        detailedDescription: 'Designed and implemented a recursive text chunking pipeline with LangChain\'s RecursiveCharacterTextSplitter, enabling efficient vectorization and semantic retrieval from long-form documents. Integrated FAISS-based vector store for low-latency dense retrieval and constructed a Retrieval-Augmented Generation (RAG) chain with ChatOpenAI to produce grounded, context-aware responses.',
+        learnings: [
+            'Implementing recursive text chunking for optimal vectorization.',
+            'Integrating FAISS for low-latency vector storage and retrieval.',
+            'Building end-to-end RAG pipelines with LangChain and OpenAI models.'
+        ],
+        repoUrl: 'https://github.com/vageeshadatta2000/InsightBridge', // <-- TODO: Update with your actual repo URL
         imageSeed: 'InsightBridge',
-        tags: ['LangChain', 'RAG', 'FAISS', 'OpenAI']
+        tags: ['LangChain', 'FAISS', 'RAG', 'ChatOpenAI']
     },
     {
-        title: 'MediQuery',
-        description: 'A chat-based healthcare assistant with sub-second GPU inference, using RAG to improve response relevance.',
-        detailedDescription: 'MediQuery is a specialized healthcare chatbot designed for fast and accurate medical information retrieval. It uses a fine-tuned SentenceTransformers model for creating dense vector embeddings of medical literature. The combination of a React frontend and a Flask backend, optimized for GPU inference, ensures a responsive user experience. Instruction tuning on the retrieval model improved relevance by 19%.',
+        title: 'MediQuery: Instruction-Tuned Healthcare Chatbot',
+        description: 'A modular React and Flask application with real-time chat, using FAISS and SentenceTransformers for dense retrieval.',
+        detailedDescription: 'Developed a modular React frontend with real-time chat interface, integrating complex state management and optimized GPU batch inference for sub-second response times. Implemented backend Flask APIs using FAISS and SentenceTransformers for dense retrieval, enhancing contextual accuracy by 19% via RAG-based instruction tuning.',
         learnings: [
-            'Fine-tuning SentenceTransformers for a domain-specific task.',
-            'Optimizing Flask for low-latency GPU model serving.',
-            'Bridging the gap between a research prototype and a usable application.'
+            'Integrating React with a Flask ML backend.',
+            'Optimizing GPU batch inference for real-time applications.',
+            'Enhancing retrieval accuracy with RAG-based instruction tuning.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/MediQuery',
+        repoUrl: 'https://github.com/vageeshadatta2000/MediQuery', // <-- TODO: Update with your actual repo URL
         imageSeed: 'MediQuery',
-        tags: ['React', 'Flask', 'SentenceTransformers']
-    },
-    {
-        title: 'StreamStyle',
-        description: 'Live video stylization on AWS using React, Flask, and Docker, reducing compute overhead by 15%.',
-        detailedDescription: 'StreamStyle applies artistic styles to live video streams in real-time. The architecture includes a React frontend for video capture, which sends frames to a Flask backend running a neural style transfer model (AdaIN). The entire service is containerized with Docker and deployed on AWS. The use of mixed-precision training and model quantization reduced GPU memory consumption and compute overhead by 15%.',
-        learnings: [
-            'Handling real-time video data streams between client and server.',
-            'Deploying ML models in a scalable way using Docker and AWS.',
-            'Applying model optimization techniques like mixed-precision training.'
-        ],
-        repoUrl: 'https://github.com/vageeshadatta2000/StreamStyle',
-        imageSeed: 'StreamStyle',
-        tags: ['React', 'Docker', 'AWS', 'AdaIN']
-    },
-    {
-        title: 'Gesture Control System',
-        description: 'Full-stack gesture recognition using OpenCV and MobileNetV2 (87% accuracy) for real-time web interaction.',
-        detailedDescription: 'This project allows users to control web applications using hand gestures captured via their webcam. An OpenCV pipeline processes the video feed, and a lightweight MobileNetV2 model classifies gestures. The results are sent from a Flask backend to a React frontend over WebRTC, enabling seamless, hardware-independent control directly in the browser.',
-        learnings: [
-            'Building a complete computer vision pipeline with OpenCV.',
-            'Using WebRTC for low-latency, peer-to-peer communication.',
-            'Optimizing a CNN model (MobileNetV2) for real-time inference.'
-        ],
-        repoUrl: 'https://github.com/vageeshadatta2000/Gesture-Control-System',
-        imageSeed: 'GestureControl',
-        tags: ['OpenCV', 'MobileNetV2', 'WebRTC']
+        tags: ['React', 'Flask', 'SentenceTransformers', 'FAISS']
     },
 ];
 
 export const SKILLS: Skill[] = [
-    { category: 'Languages', list: ['Python', 'JavaScript', 'TypeScript', 'C++', 'SQL', 'Bash'] },
-    { category: 'Frameworks', list: ['PyTorch', 'TensorFlow', 'Flask', 'FastAPI', 'React', 'Angular', 'Spring Boot'] },
-    { category: 'Libraries', list: ['AutoGen', 'D3.js', 'LangChain', 'SentenceTransformers', 'Material UI'] },
-    { category: 'DevOps', list: ['Docker', 'AWS', 'Terraform', 'Jenkins', 'Git', 'Kafka'] },
-    { category: 'Databases', list: ['PostgreSQL', 'CockroachDB', 'FAISS'] },
-    { category: 'Tools', list: ['CI/CD', 'REST APIs', 'Prometheus', 'Grafana', 'Linux'] }
+    { category: 'Languages', list: ['Python', 'JavaScript', 'TypeScript', 'C++', 'SQL', 'Bash', 'HTML', 'CSS'] },
+    { category: 'Frameworks', list: ['PyTorch', 'TensorFlow', 'Flask', 'FastAPI', 'React', 'LangChain', 'AutoGen', 'D3.js', 'FAISS', 'Material UI'] },
+    { category: 'Tools', list: ['Docker', 'AWS', 'Git', 'Jenkins', 'Prometheus', 'Grafana', 'REST APIs', 'Unix/Linux', 'Terraform', 'Kafka', 'CockroachDB'] }
 ];
 
 export const CODE_SNIPPETS: CodeSnippet[] = [
+    // You can keep these or update them with your own code snippets
     {
         language: 'Python',
         title: 'FastAPI RAG Endpoint',
@@ -149,58 +124,38 @@ app = FastAPI()
 
 class Query(BaseModel):
     question: str
-    session_id: str | None = None
 
 @app.post("/api/query")
 async def ask_question(query: Query):
-    """
-    Receives a question, passes it to the RAG pipeline,
-    and returns a grounded answer.
-    """
-    try:
-        result = await query_vector_db(
-            question=query.question, 
-            session_id=query.session_id
-        )
-        return {"answer": result.answer, "sources": result.sources}
-    except Exception as e:
-        return {"error": str(e)}, 500`
+    result = await query_vector_db(question=query.question)
+    return {"answer": result.answer, "sources": result.sources}`
     },
     {
         language: 'TypeScript',
         title: 'Custom React Hook for API',
         code:
-`import { useState, useEffect, useCallback } from 'react';
+`import { useState, useEffect } from 'react';
 
-interface ApiResponse<T> {
-  data: T | null;
-  loading: boolean;
-  error: Error | null;
-}
-
-export function useApi<T>(url: string): ApiResponse<T> {
+function useApi<T>(url: string) {
   const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  const fetchData = useCallback(async () => {
-    try {
-      setLoading(true);
-      const response = await fetch(url);
-      if (!response.ok) throw new Error(response.statusText);
-      const json = await response.json();
-      setData(json);
-      setError(null);
-    } catch (e) {
-      setError(e as Error);
-    } finally {
-      setLoading(false);
-    }
-  }, [url]);
-
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error(response.statusText);
+        const json = await response.json();
+        setData(json);
+      } catch (e) {
+        setError(e as Error);
+      } finally {
+        setLoading(false);
+      }
+    };
     fetchData();
-  }, [fetchData]);
+  }, [url]);
 
   return { data, loading, error };
 }`
@@ -210,21 +165,21 @@ export function useApi<T>(url: string): ApiResponse<T> {
 export const WHAT_IM_LEARNING: LearningItem[] = [
     {
         title: "Advanced RAG Architectures",
-        description: "Exploring self-corrective and adaptive RAG techniques to improve grounding and reduce hallucinations in complex Q&A tasks."
+        description: "Exploring self-corrective and adaptive RAG techniques to improve grounding and reduce hallucinations."
     },
     {
         title: "Large-Scale Model Serving",
-        description: "Diving into technologies like vLLM and TensorRT-LLM for optimizing inference speed and throughput of large language models."
+        description: "Diving into technologies like vLLM and TensorRT-LLM for optimizing inference speed and throughput."
     },
     {
-        title: "WebAssembly on the Frontend",
-        description: "Investigating how Rust compiled to WebAssembly can be used to accelerate compute-intensive tasks directly in the browser."
+        title: "Multi-Modal AI Systems",
+        description: "Learning about models that can understand and process information from multiple sources like text, images, and audio."
     }
 ];
 
 export const CONTACT_INFO = {
     email: 'vageeshadattag@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/vageesha-datta-ganapaneni-094ab7184/',
+    linkedin: 'https://linkedin.com/in/vageesha-datta-ganapaneni', // <-- Update with full URL if different
     github: 'https://github.com/vageeshadatta2000'
 };
 
