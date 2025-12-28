@@ -10,9 +10,21 @@ export const NAV_LINKS: NavLink[] = [
     { id: 'contact', title: 'Contact' },
 ];
 
-export const PROFILE = `I am currently seeking full-time opportunities in generative AI, machine learning, and full-stack development, where I can apply my experience to build impactful, production-ready systems.`;
+export const PROFILE = `Machine Learning Engineer & Full-Stack Developer specializing in Deep Learning, Computer Vision, Audio-Visual Learning, and Distributed AI Systems. Passionate about building scalable, production-ready ML systems.`;
 
-export const ABOUT = `I am passionate about building practical, end-to-end AI systems that solve real-world problems. My recent experience spans developing generative AI tools for financial data analysis, designing instruction-tuned chatbots for healthcare, and building scalable full-stack applications using frameworks like Flask, React, and AWS. I enjoy working across the stack—from optimizing model inference and API design to crafting responsive user interfaces—because it allows me to turn complex ideas into usable, impactful products. What drives me is the challenge of creating systems that are both technically sound and meaningfully integrated into how people work and interact with technology.`;
+export const TYPING_TEXTS = [
+    "Machine Learning Engineer",
+    "Deep Learning Researcher",
+    "Computer Vision Specialist",
+    "Full-Stack Developer",
+    "Distributed Systems Engineer"
+];
+
+export const ABOUT = `I am passionate about building practical, end-to-end AI systems that solve real-world problems. My experience spans multi-GPU training for video-aligned Text-to-Audio models, scalable audio-visual frameworks combining speech separation and Active Speaker Detection, and full-stack development with Flask, React, and AWS.
+
+I enjoy working across the stack—from optimizing model inference with CUDA and TensorRT to crafting responsive user interfaces—because it allows me to turn complex ideas into usable, impactful products. My expertise includes PyTorch, TensorFlow, distributed computing with NCCL and MPI, and cloud deployment with Docker and AWS.
+
+What drives me is the challenge of creating systems that are both technically sound and meaningfully integrated into how people work and interact with technology.`;
 
 export const EDUCATION: Education[] = [
     {
@@ -20,7 +32,7 @@ export const EDUCATION: Education[] = [
         degree: 'Master of Science in Computer Science',
         period: 'Aug 2022 – May 2025',
         gpa: '3.6/4.0',
-        courses: 'Machine Learning, Artificial Intelligence, Computer Vision, Natural Language Processing, Statistics in AI and ML'
+        courses: 'Machine Learning, Design and Analysis of Algorithms, Operating Systems, Artificial Intelligence, Computer Vision, Natural Language Processing, Statistics in AI and ML'
     },
     {
         institution: 'SRM University, AP',
@@ -32,156 +44,187 @@ export const EDUCATION: Education[] = [
 
 export const EXPERIENCE: Experience[] = [
     {
-        role: 'AI Researcher',
-        company: 'Allen Institute for AI (AI2)',
-        period: 'Jan 2025 - May 2025',
+        role: 'Graduate Student Research Assistant',
+        company: 'University of Texas at Dallas',
+        period: 'Aug 2024 - Dec 2024',
         points: [
-            'Implemented Optimization by Prompting (OPRO) for test-time LLM steering, boosting hypothesis generation accuracy by 12%.',
-            'Built a belief-tracking and uncertainty quantification framework using AutoGen and binomial modeling.',
-            'Developed an interactive D3.js experiment tree to visualize belief evolution in LLMs and accelerate debugging.'
+            'Contributed to multi-GPU training and optimization of T2AV, a video-aligned Text-to-Audio model, using PyTorch and CUDA for efficient execution and temporal alignment performance.',
+            'Co-developed T2AV-Bench for evaluating audio-visual alignment and consistency, incorporating contrastive learning, fault-tolerant evaluation, and distributed testing capabilities.'
         ]
     },
     {
-        role: 'Software Engineer Intern',
-        company: 'Rocktop Technologies',
-        period: 'Sep 2023 - July 2024',
+        role: 'Graduate Assistant',
+        company: 'University of Texas at Dallas',
+        period: 'Jan 2023 - June 2023',
         points: [
-            'Developed and optimized microservices using Python and PyTorch to implement generative AI agents, reducing manual processing time by 30%.',
-            'Designed and deployed RESTful APIs with Flask to serve AI-generated insights for risk evaluation.',
-            'Integrated NLP-based query modules to build conversational interfaces for non-technical users.',
-            'Conducted rigorous testing and deployment of AI-driven anomaly detection pipelines.'
+            'Built a scalable audio-visual framework combining speech separation and Active Speaker Detection using PyTorch and NCCL, optimized for noisy real-world data on GPU clusters.',
+            'Improved model robustness and throughput via dynamic loss weighting, GPU utilization tuning, and profiling with tools like perf, valgrind, and custom performance diagnostics.'
         ]
     },
-     {
+    {
         role: 'Software Engineer',
         company: 'Fiserv',
-        period: 'Dec 2020 - May 2022',
+        period: 'Dec 2021 - May 2022',
         points: [
-            'Orchestrated the deployment of Kafka-based microservices using Jenkins CI/CD and CockroachDB for 166,000+ users.',
-            'Implemented Prometheus and Grafana for real-time observability, improving uptime and minimizing incidents.',
-            'Developed a React.js and Spring Boot security dashboard, saving 10+ hours weekly.',
-            'Refactored legacy UI using Material UI, containerized with Docker, and deployed to AWS EC2, reducing support tickets by 25%.'
+            'Developed and maintained RESTful APIs using Flask and FastAPI to connect internal systems with third-party services, improving reliability and enabling seamless transaction processing.',
+            'Spearheaded technical onboarding for 30+ merchants by building Python-based integration flows and React dashboards, improving onboarding efficiency by 35%.',
+            'Containerized backend services with Docker and deployed them to AWS EC2, while supporting production with SQL diagnostics to reduce settlement delays.'
+        ]
+    },
+    {
+        role: 'Machine Learning Intern',
+        company: 'Madras Scientific Research Foundation',
+        period: 'April 2019 - Nov 2019',
+        points: [
+            'Engineered a lightweight Dense Rebar Recognition model with TensorFlow, improving inference time by 20% and enabling near real-time deployment.',
+            'Achieved 98% model accuracy and aligned defect detection with industrial QA benchmarks, integrating checkpointing and recovery workflows.',
+            'Designed scalable preprocessing pipelines using TensorFlow and NumPy, accelerating training cycles and streamlining GPU-based deployment workflows.'
         ]
     }
 ];
 
 export const PROJECTS: Project[] = [
     {
-        title: 'InsightBridge: LLM Document Analysis Tool',
-        description: 'An LLM-powered tool with a recursive text chunking pipeline (LangChain) and FAISS vector store for semantic retrieval.',
-        detailedDescription: "Designed and implemented a recursive text chunking pipeline with LangChain's RecursiveCharacterTextSplitter, enabling efficient vectorization and semantic retrieval from long-form documents. Integrated a FAISS-based vector store for low-latency dense retrieval and constructed a Retrieval-Augmented Generation (RAG) chain with ChatOpenAI to produce grounded, context-aware responses.",
-        learnings: [
-            'Implementing recursive text chunking for optimal vectorization.',
-            'Integrating FAISS for low-latency vector storage and retrieval.',
-            'Building end-to-end RAG pipelines with LangChain and OpenAI models.'
-        ],
-        repoUrl: 'https://github.com/vageeshadatta2000/InsightBridge',
-        imageSeed: 'InsightBridge',
-        tags: ['LangChain', 'FAISS', 'RAG', 'ChatOpenAI']
-    },
-    {
-        title: 'MediQuery: Instruction-Tuned Healthcare Chatbot',
-        description: 'A modular React and Flask app with real-time chat, using FAISS and SentenceTransformers for dense retrieval and 19% accuracy boost.',
-        detailedDescription: 'Developed a modular React frontend with real-time chat interface, integrating complex state management and optimized GPU batch inference for sub-second response times. Implemented backend Flask APIs using FAISS and SentenceTransformers for dense retrieval, enhancing contextual accuracy by 19% via RAG-based instruction tuning.',
-        learnings: [
-            'Integrating React with a Flask ML backend.',
-            'Optimizing GPU batch inference for real-time applications.',
-            'Enhancing retrieval accuracy with RAG-based instruction tuning.'
-        ],
-        repoUrl: 'https://github.com/vageeshadatta2000/MediQuery',
-        imageSeed: 'MediQuery',
-        tags: ['React', 'Flask', 'SentenceTransformers', 'FAISS']
-    },
-    {
-        title: 'StreamStyle: Real-time Video Style Transfer',
-        description: 'Scalable platform using React, Flask, Docker, and AWS EC2 to apply style transfer to video streams with 50% less flickering.',
-        detailedDescription: 'Engineered a React frontend featuring efficient video upload, processing status updates, and live previews. Created scalable Flask REST APIs deployed on AWS EC2 with Docker, leveraging AdaIN and mixed-precision training to reduce inference flickering by 50% and computation overhead by 15%.',
+        title: 'Scalable Video Processing Backend with Style Transfer',
+        description: 'Real-time video stylization system using PyTorch, deployed via Flask and Docker with RESTful APIs, integrated with React frontend.',
+        detailedDescription: 'Developed a real-time video stylization system using PyTorch, deployed via Flask and Docker with RESTful APIs, and integrated with a React frontend for video uploads and live previews, enabling efficient high-I/O processing. Optimized backend performance with AdaIN, VGG-19, and mixed-precision training techniques, reducing flickering by 50% and computational overhead by 15%.',
         learnings: [
             'Handling real-time video data streams between client and server.',
             'Deploying ML models in a scalable way using Docker and AWS.',
-            'Applying model optimization techniques like mixed-precision training.'
+            'Applying model optimization techniques like mixed-precision training.',
+            'AdaIN architecture for arbitrary style transfer.'
         ],
         repoUrl: 'https://github.com/vageeshadatta2000/StreamStyle',
-        imageSeed: 'StreamStyle',
-        tags: ['React', 'Flask', 'Docker', 'AWS', 'AdaIN']
+        imageSeed: 'VideoStyleTransfer',
+        tags: ['PyTorch', 'Flask', 'Docker', 'React', 'AdaIN', 'VGG-19']
     },
+    {
+        title: 'Real-Time Hand Gesture Control System',
+        description: 'End-to-end gesture recognition system using OpenCV and TensorFlow with MobileNetV2, achieving 87% accuracy with hardware integration.',
+        detailedDescription: 'Engineered an end-to-end gesture recognition system using OpenCV and TensorFlow with MobileNetV2, achieving 87% accuracy and enhancing inference speed through transfer learning. Designed a real-time video-to-image pipeline and integrated it with Flask and WebRTC to expose gesture actions over web-based interfaces, improving frame processing by 37%.',
+        learnings: [
+            'Real-time video processing with OpenCV.',
+            'Transfer learning with MobileNetV2 for efficient inference.',
+            'WebRTC integration for web-based gesture control.',
+            'Hardware-agnostic system design.'
+        ],
+        repoUrl: 'https://github.com/vageeshadatta2000/GestureControl',
+        imageSeed: 'GestureControl',
+        tags: ['TensorFlow', 'OpenCV', 'MobileNetV2', 'Flask', 'WebRTC']
+    },
+    {
+        title: 'T2AV: Text-to-Audio-Video Alignment System',
+        description: 'Multi-GPU training pipeline for video-aligned Text-to-Audio generation with contrastive learning and distributed evaluation.',
+        detailedDescription: 'Contributed to multi-GPU training and optimization of T2AV, a video-aligned Text-to-Audio model, using PyTorch and CUDA for efficient execution and temporal alignment performance. Co-developed T2AV-Bench for evaluating audio-visual alignment and consistency, incorporating contrastive learning and distributed testing.',
+        learnings: [
+            'Multi-GPU training with PyTorch and CUDA.',
+            'Contrastive learning for audio-visual alignment.',
+            'Building evaluation benchmarks for ML models.',
+            'Distributed systems for AI training.'
+        ],
+        repoUrl: 'https://github.com/vageeshadatta2000/T2AV',
+        imageSeed: 'T2AV-AudioVisual',
+        tags: ['PyTorch', 'CUDA', 'NCCL', 'Contrastive Learning', 'Multi-GPU']
+    }
 ];
 
 export const SKILLS: Skill[] = [
-    { category: 'Languages', list: ['Python', 'JavaScript', 'TypeScript', 'C++', 'SQL', 'Bash', 'HTML', 'CSS'] },
-    { category: 'Frameworks', list: ['PyTorch', 'TensorFlow', 'Flask', 'FastAPI', 'React', 'Angular', 'Spring Boot', 'Material UI', 'AutoGen', 'D3.js'] },
-    { category: 'Tools', list: ['Docker', 'AWS', 'Terraform', 'Jenkins', 'Kafka', 'CockroachDB', 'Git', 'Prometheus', 'Grafana', 'Unix/Linux', 'REST APIs', 'FAISS'] }
+    { category: 'Languages', list: ['Python', 'C++', 'SQL', 'Bash', 'MATLAB'] },
+    { category: 'Frameworks & Libraries', list: ['PyTorch', 'TensorFlow', 'Keras', 'JAX', 'scikit-learn', 'OpenCV', 'NumPy', 'Pandas'] },
+    { category: 'GPU/Distributed Computing', list: ['CUDA', 'NCCL', 'MPI', 'NVIDIA Nsight', 'TensorRT', 'gdb', 'valgrind', 'perf'] },
+    { category: 'Cloud & DevOps', list: ['Docker', 'AWS (EC2, S3, Lambda)', 'Terraform', 'Git', 'Unix/Linux'] },
+    { category: 'Technologies & Interests', list: ['Deep Learning', 'NLP', 'Computer Vision', 'Audio-Visual Learning', 'Contrastive Learning', 'Model Optimization', 'Distributed AI'] }
 ];
 
 export const CODE_SNIPPETS: CodeSnippet[] = [
     {
         language: 'Python',
-        title: 'FastAPI RAG Endpoint',
-        code: 
-`from fastapi import FastAPI
-from pydantic import BaseModel
-from my_rag_pipeline import query_vector_db
+        title: 'Multi-GPU Training with PyTorch DDP',
+        code:
+`import torch
+import torch.distributed as dist
+from torch.nn.parallel import DistributedDataParallel as DDP
 
-app = FastAPI()
+def setup_distributed(rank, world_size):
+    dist.init_process_group(
+        backend='nccl',
+        init_method='env://',
+        world_size=world_size,
+        rank=rank
+    )
+    torch.cuda.set_device(rank)
 
-class Query(BaseModel):
-    question: str
+def train_step(model, data, optimizer):
+    optimizer.zero_grad()
+    output = model(data)
+    loss = compute_loss(output)
+    loss.backward()
+    optimizer.step()
+    return loss.item()
 
-@app.post("/api/query")
-async def ask_question(query: Query):
-    result = await query_vector_db(question=query.question)
-    return {"answer": result.answer, "sources": result.sources}`
+# Wrap model with DDP
+model = DDP(model.to(rank), device_ids=[rank])`
     },
     {
         language: 'TypeScript',
-        title: 'Custom React Hook for API',
+        title: 'Real-time WebRTC Video Stream Hook',
         code:
-`import { useState, useEffect } from 'react';
+`import { useEffect, useRef, useState } from 'react';
 
-function useApi<T>(url: string) {
-  const [data, setData] = useState<T | null>(null);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<Error | null>(null);
+function useVideoStream() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [stream, setStream] = useState<MediaStream | null>(null);
 
   useEffect(() => {
-    const fetchData = async () => {
+    async function initStream() {
       try {
-        const response = await fetch(url);
-        if (!response.ok) throw new Error(response.statusText);
-        setData(await response.json());
-      } catch (e) {
-        setError(e as Error);
-      } finally {
-        setLoading(false);
+        const mediaStream = await navigator.mediaDevices
+          .getUserMedia({ video: true, audio: false });
+        if (videoRef.current) {
+          videoRef.current.srcObject = mediaStream;
+        }
+        setStream(mediaStream);
+      } catch (err) {
+        console.error('Failed to get video stream:', err);
       }
-    };
-    fetchData();
-  }, [url]);
+    }
+    initStream();
+    return () => stream?.getTracks().forEach(t => t.stop());
+  }, []);
 
-  return { data, loading, error };
+  return { videoRef, stream };
 }`
     }
 ];
 
 export const WHAT_IM_LEARNING: LearningItem[] = [
     {
-        title: "Advanced RAG Architectures",
-        description: "Exploring self-corrective and adaptive RAG techniques to improve grounding and reduce hallucinations."
-    },
-    {
         title: "Large-Scale Model Serving",
-        description: "Diving into technologies like vLLM and TensorRT-LLM for optimizing inference speed and throughput."
+        description: "Diving into technologies like vLLM and TensorRT-LLM for optimizing inference speed and throughput at scale."
     },
     {
         title: "Multi-Modal AI Systems",
-        description: "Learning about models that can understand and process information from multiple sources like text, images, and audio."
+        description: "Exploring models that understand and process information from multiple sources like text, images, audio, and video."
+    },
+    {
+        title: "Distributed Training Optimization",
+        description: "Advanced techniques in multi-GPU and multi-node training, including gradient compression and pipeline parallelism."
     }
+];
+
+export const STATS = [
+    { label: 'Years of Experience', value: 4, suffix: '+' },
+    { label: 'Projects Completed', value: 15, suffix: '+' },
+    { label: 'Technologies Mastered', value: 30, suffix: '+' },
+    { label: 'Model Accuracy Achieved', value: 98, suffix: '%' }
 ];
 
 export const CONTACT_INFO = {
     email: 'vageeshadattag@gmail.com',
-    linkedin: 'https://www.linkedin.com/in/vageesha-datta-ganapaneni-094ab7184/',
-    github: 'https://github.com/vageeshadatta2000'
+    linkedin: 'https://www.linkedin.com/in/vageeshadatta',
+    github: 'https://github.com/vageeshadatta2000',
+    phone: '+1(469) 805-1906',
+    location: 'Dallas, Texas'
 };
 
 export const PORTFOLIO_CONTEXT = `
