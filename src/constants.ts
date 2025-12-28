@@ -10,213 +10,207 @@ export const NAV_LINKS: NavLink[] = [
     { id: 'contact', title: 'Contact' },
 ];
 
-export const PROFILE = `Machine Learning Engineer & Full-Stack Developer specializing in Deep Learning, Computer Vision, Audio-Visual Learning, and Distributed AI Systems. Passionate about building scalable, production-ready ML systems.`;
+export const PROFILE = `AI/ML Engineer specializing in Agentic AI Evaluation, LLM Systems, and Distributed AI Infrastructure. Currently working on cutting-edge AI agent evaluation frameworks and responsible AI governance.`;
 
 export const TYPING_TEXTS = [
-    "Machine Learning Engineer",
-    "Deep Learning Researcher",
-    "Computer Vision Specialist",
+    "AI/ML Engineer",
+    "Agentic AI Researcher",
+    "LLM Systems Engineer",
     "Full-Stack Developer",
-    "Distributed Systems Engineer"
+    "AI Evaluation Specialist"
 ];
 
-export const ABOUT = `I am passionate about building practical, end-to-end AI systems that solve real-world problems. My experience spans multi-GPU training for video-aligned Text-to-Audio models, scalable audio-visual frameworks combining speech separation and Active Speaker Detection, and full-stack development with Flask, React, and AWS.
+export const ABOUT = `I am passionate about building and evaluating intelligent AI systems that solve real-world problems. My experience spans designing distributed evaluation frameworks for agentic AI models, developing AI-driven automation pipelines, and building interactive dashboards for ML insights.
 
-I enjoy working across the stack—from optimizing model inference with CUDA and TensorRT to crafting responsive user interfaces—because it allows me to turn complex ideas into usable, impactful products. My expertise includes PyTorch, TensorFlow, distributed computing with NCCL and MPI, and cloud deployment with Docker and AWS.
+Currently working as an AI Fellow at Handshake, where I conduct machine learning code reviews of AI agents and contribute to responsible AI governance frameworks. Previously at HUD, I designed evaluation frameworks parallelizing rollouts and vLLM inference across H100 GPU clusters, improving evaluation throughput by 15%.
 
-What drives me is the challenge of creating systems that are both technically sound and meaningfully integrated into how people work and interact with technology.`;
+My expertise includes PyTorch, TensorFlow, LangChain, LangGraph, and cloud deployment with Docker and Kubernetes. I enjoy working across the stack—from optimizing model inference with vLLM to crafting interactive React dashboards—because it allows me to turn complex AI research into usable, impactful products.`;
 
 export const EDUCATION: Education[] = [
     {
-        institution: 'University of Texas at Dallas',
+        institution: 'The University of Texas at Dallas',
         degree: 'Master of Science in Computer Science',
         period: 'Aug 2022 – May 2025',
-        gpa: '3.6/4.0',
-        courses: 'Machine Learning, Design and Analysis of Algorithms, Operating Systems, Artificial Intelligence, Computer Vision, Natural Language Processing, Statistics in AI and ML'
-    },
-    {
-        institution: 'SRM University, AP',
-        degree: 'Bachelor of Technology in Computer Science and Engineering',
-        period: 'Aug 2018 – June 2022',
-        gpa: '9.06/10.00'
+        gpa: '',
+        courses: 'Machine Learning, Artificial Intelligence, Computer Vision, Natural Language Processing, Statistics in AI and ML, Web Programming Languages'
     }
 ];
 
 export const EXPERIENCE: Experience[] = [
     {
-        role: 'Graduate Student Research Assistant',
-        company: 'University of Texas at Dallas',
-        period: 'Aug 2024 - Dec 2024',
+        role: 'AI Fellow',
+        company: 'Handshake',
+        period: 'Oct 2025 - Present',
         points: [
-            'Contributed to multi-GPU training and optimization of T2AV, a video-aligned Text-to-Audio model, using PyTorch and CUDA for efficient execution and temporal alignment performance.',
-            'Co-developed T2AV-Bench for evaluating audio-visual alignment and consistency, incorporating contrastive learning, fault-tolerant evaluation, and distributed testing capabilities.'
+            'Applied prompt engineering, conducted 1K+ machine learning code reviews of coding AI agents to detect rogue behaviors and integrate corrected experimentation, improving model compliance accuracy by 2%.',
+            'Enhancing the scientific integrity evaluation framework by designing custom metrics, contributing to the development of internal benchmarks for responsible AI governance within Handshake\'s MOVE research program.'
         ]
     },
     {
-        role: 'Graduate Assistant',
-        company: 'University of Texas at Dallas',
-        period: 'Jan 2023 - June 2023',
+        role: 'Research Engineer – Agentic AI Evals',
+        company: 'HUD',
+        period: 'Oct 2025 - Nov 2025',
         points: [
-            'Built a scalable audio-visual framework combining speech separation and Active Speaker Detection using PyTorch and NCCL, optimized for noisy real-world data on GPU clusters.',
-            'Improved model robustness and throughput via dynamic loss weighting, GPU utilization tuning, and profiling with tools like perf, valgrind, and custom performance diagnostics.'
+            'Designed a distributed evaluation framework by parallelizing rollouts, vLLM inference, and fine-tuning across H100 GPU clusters, improving evaluation throughput by 15% and accelerating agentic model benchmarking.',
+            'Evaluated AI agents across multiple codebases, assessing their ability to interpret pull requests (PRs), implement code changes, and design test cases verifying modified behavior through multi-turn reasoning.',
+            'Refactored the evaluation harness into a modular, configuration-based system supporting plug-and-play model integration, reducing setup effort by 25% and enabling faster experimentation for future client evaluations.',
+            'Developed interactive React dashboards connected to Python and Docker-based analytics, cutting manual result inspection time by nearly 20% and improving visibility across research and engineering teams.'
         ]
     },
     {
-        role: 'Software Engineer',
-        company: 'Fiserv',
-        period: 'Dec 2021 - May 2022',
+        role: 'AI Researcher',
+        company: 'Allen Institute for AI (Ai2)',
+        period: 'Jan 2025 - May 2025',
         points: [
-            'Developed and maintained RESTful APIs using Flask and FastAPI to connect internal systems with third-party services, improving reliability and enabling seamless transaction processing.',
-            'Spearheaded technical onboarding for 30+ merchants by building Python-based integration flows and React dashboards, improving onboarding efficiency by 35%.',
-            'Containerized backend services with Docker and deployed them to AWS EC2, while supporting production with SQL diagnostics to reduce settlement delays.'
+            'Applied Optimization by Prompting (OPRO) to enhance few-shot reasoning, refining prompt design to achieve a 12% gain in hypothesis generation accuracy across active reasoning benchmarks.',
+            'Developed belief-tracking and uncertainty quantification components using entropy and KL divergence, allowing early detection of reasoning drift and improving interpretability in complex inference tasks.',
+            'Built an interactive D3.js platform visualizing confidence evolution across reasoning chains, streamlining analytical reviews and increasing transparency for research teams.'
         ]
     },
     {
-        role: 'Machine Learning Intern',
-        company: 'Madras Scientific Research Foundation',
-        period: 'April 2019 - Nov 2019',
+        role: 'AI Software Engineer – Automation Team',
+        company: 'IBM',
+        period: 'Dec 2020 - May 2022',
         points: [
-            'Engineered a lightweight Dense Rebar Recognition model with TensorFlow, improving inference time by 20% and enabling near real-time deployment.',
-            'Achieved 98% model accuracy and aligned defect detection with industrial QA benchmarks, integrating checkpointing and recovery workflows.',
-            'Designed scalable preprocessing pipelines using TensorFlow and NumPy, accelerating training cycles and streamlining GPU-based deployment workflows.'
+            'Deployed AI-driven automation pipelines across hybrid cloud environments, improving operational throughput by 20% and minimizing manual touchpoints in core business processes.',
+            'Processed and structured over 10 million data records to enable accurate training of predictive models that strengthened process reliability and decision support.',
+            'Introduced reusable libraries and REST APIs that standardized automation routines, reducing integration timelines by 30% and facilitating organization-wide adoption of AI tooling.',
+            'Containerized machine learning solutions with Docker and orchestrated deployments using Kubernetes, bringing down release time from hours to minutes while ensuring consistent performance across environments.'
         ]
     }
 ];
 
 export const PROJECTS: Project[] = [
     {
-        title: 'Scalable Video Processing Backend with Style Transfer',
-        description: 'Real-time video stylization system using PyTorch, deployed via Flask and Docker with RESTful APIs, integrated with React frontend.',
-        detailedDescription: 'Developed a real-time video stylization system using PyTorch, deployed via Flask and Docker with RESTful APIs, and integrated with a React frontend for video uploads and live previews, enabling efficient high-I/O processing. Optimized backend performance with AdaIN, VGG-19, and mixed-precision training techniques, reducing flickering by 50% and computational overhead by 15%.',
+        title: 'Vision-Based Web Automation Agent',
+        description: 'Autonomous web automation agent using GPT-4o Vision with Observe-Think-Act loop, achieving 98.7% accuracy in solving web automation tasks.',
+        detailedDescription: 'Built an autonomous web automation agent using GPT-4o Vision that executes multi-step tasks through an Observe-Think-Act loop, leveraging IoU-based filtering to deduplicate bounding boxes for accurate interactive element detection. Implemented intelligent action execution with visual grounding and text-matching fallbacks, achieving 98.7% accuracy in solving web automation tasks with robust loop detection and verification mechanisms.',
         learnings: [
-            'Handling real-time video data streams between client and server.',
-            'Deploying ML models in a scalable way using Docker and AWS.',
-            'Applying model optimization techniques like mixed-precision training.',
-            'AdaIN architecture for arbitrary style transfer.'
+            'Building autonomous AI agents with vision capabilities.',
+            'Implementing Observe-Think-Act loops for multi-step reasoning.',
+            'IoU-based filtering for accurate element detection.',
+            'Visual grounding and text-matching fallback strategies.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/StreamStyle',
-        imageSeed: 'VideoStyleTransfer',
-        tags: ['PyTorch', 'Flask', 'Docker', 'React', 'AdaIN', 'VGG-19']
+        repoUrl: 'https://github.com/vageeshadatta2000/WebAutomationAgent',
+        imageSeed: 'WebAutomationAgent',
+        tags: ['GPT-4o Vision', 'AI Agents', 'Web Automation', 'Python', 'Computer Vision']
     },
     {
-        title: 'Real-Time Hand Gesture Control System',
-        description: 'End-to-end gesture recognition system using OpenCV and TensorFlow with MobileNetV2, achieving 87% accuracy with hardware integration.',
-        detailedDescription: 'Engineered an end-to-end gesture recognition system using OpenCV and TensorFlow with MobileNetV2, achieving 87% accuracy and enhancing inference speed through transfer learning. Designed a real-time video-to-image pipeline and integrated it with Flask and WebRTC to expose gesture actions over web-based interfaces, improving frame processing by 37%.',
+        title: 'MoodBoard AI: Context-Aware Pin Recommendations',
+        description: 'Context-aware recommendation system generating personalized mood boards using graph embeddings and multimodal LLM inputs.',
+        detailedDescription: 'Built a context-aware recommendation system that generated personalized "mood boards" by combining graph embeddings of user–pin interactions with multimodal inputs, enabling richer context modeling for recommendations. Incorporated LLM-based embeddings of image and text metadata into the retrieval pipeline, improving recommendation quality and boosting recall by 17% in offline evaluations.',
         learnings: [
-            'Real-time video processing with OpenCV.',
-            'Transfer learning with MobileNetV2 for efficient inference.',
-            'WebRTC integration for web-based gesture control.',
-            'Hardware-agnostic system design.'
+            'Graph embeddings for user-item interactions.',
+            'Multimodal LLM integration for recommendations.',
+            'Building context-aware retrieval pipelines.',
+            'Evaluation metrics for recommendation systems.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/GestureControl',
-        imageSeed: 'GestureControl',
-        tags: ['TensorFlow', 'OpenCV', 'MobileNetV2', 'Flask', 'WebRTC']
+        repoUrl: 'https://github.com/vageeshadatta2000/MoodBoardAI',
+        imageSeed: 'MoodBoardAI',
+        tags: ['LLM', 'Graph Embeddings', 'Recommendations', 'Multimodal AI', 'Python']
     },
     {
-        title: 'T2AV: Text-to-Audio-Video Alignment System',
-        description: 'Multi-GPU training pipeline for video-aligned Text-to-Audio generation with contrastive learning and distributed evaluation.',
-        detailedDescription: 'Contributed to multi-GPU training and optimization of T2AV, a video-aligned Text-to-Audio model, using PyTorch and CUDA for efficient execution and temporal alignment performance. Co-developed T2AV-Bench for evaluating audio-visual alignment and consistency, incorporating contrastive learning and distributed testing.',
+        title: 'AI Agent Evaluation Framework',
+        description: 'Distributed evaluation framework for agentic AI models with vLLM inference across H100 GPU clusters.',
+        detailedDescription: 'Designed a distributed evaluation framework by parallelizing rollouts, vLLM inference, and fine-tuning across H100 GPU clusters, improving evaluation throughput by 15%. Refactored the harness into a modular, configuration-based system supporting plug-and-play model integration, reducing setup effort by 25%.',
         learnings: [
-            'Multi-GPU training with PyTorch and CUDA.',
-            'Contrastive learning for audio-visual alignment.',
-            'Building evaluation benchmarks for ML models.',
-            'Distributed systems for AI training.'
+            'Distributed systems for AI evaluation.',
+            'vLLM inference optimization.',
+            'Building modular evaluation frameworks.',
+            'H100 GPU cluster orchestration.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/T2AV',
-        imageSeed: 'T2AV-AudioVisual',
-        tags: ['PyTorch', 'CUDA', 'NCCL', 'Contrastive Learning', 'Multi-GPU']
+        repoUrl: 'https://github.com/vageeshadatta2000/AgentEval',
+        imageSeed: 'AgentEvalFramework',
+        tags: ['vLLM', 'H100 GPUs', 'Distributed Systems', 'AI Evaluation', 'Python']
     }
 ];
 
 export const SKILLS: Skill[] = [
-    { category: 'Languages', list: ['Python', 'C++', 'SQL', 'Bash', 'MATLAB'] },
-    { category: 'Frameworks & Libraries', list: ['PyTorch', 'TensorFlow', 'Keras', 'JAX', 'scikit-learn', 'OpenCV', 'NumPy', 'Pandas'] },
-    { category: 'GPU/Distributed Computing', list: ['CUDA', 'NCCL', 'MPI', 'NVIDIA Nsight', 'TensorRT', 'gdb', 'valgrind', 'perf'] },
-    { category: 'Cloud & DevOps', list: ['Docker', 'AWS (EC2, S3, Lambda)', 'Terraform', 'Git', 'Unix/Linux'] },
-    { category: 'Technologies & Interests', list: ['Deep Learning', 'NLP', 'Computer Vision', 'Audio-Visual Learning', 'Contrastive Learning', 'Model Optimization', 'Distributed AI'] }
+    { category: 'Languages', list: ['Python', 'JavaScript', 'TypeScript', 'Rust', 'SQL', 'Bash', 'Linux'] },
+    { category: 'Frameworks & Libraries', list: ['PyTorch', 'TensorFlow', 'LangChain', 'LangGraph', 'Flask', 'FastAPI', 'React', 'Node.js', 'D3.js'] },
+    { category: 'Tools & Platforms', list: ['Docker', 'Kubernetes', 'AWS', 'Git', 'FAISS', 'Redis', 'vLLM', 'REST APIs'] }
 ];
 
 export const CODE_SNIPPETS: CodeSnippet[] = [
     {
         language: 'Python',
-        title: 'Multi-GPU Training with PyTorch DDP',
+        title: 'LangChain Agent with Tool Calling',
         code:
-`import torch
-import torch.distributed as dist
-from torch.nn.parallel import DistributedDataParallel as DDP
+`from langchain.agents import AgentExecutor, create_openai_tools_agent
+from langchain_openai import ChatOpenAI
+from langchain.tools import tool
 
-def setup_distributed(rank, world_size):
-    dist.init_process_group(
-        backend='nccl',
-        init_method='env://',
-        world_size=world_size,
-        rank=rank
-    )
-    torch.cuda.set_device(rank)
+@tool
+def analyze_code(code: str) -> str:
+    """Analyze code for potential issues."""
+    # Analysis logic here
+    return f"Analysis complete for {len(code)} chars"
 
-def train_step(model, data, optimizer):
-    optimizer.zero_grad()
-    output = model(data)
-    loss = compute_loss(output)
-    loss.backward()
-    optimizer.step()
-    return loss.item()
+llm = ChatOpenAI(model="gpt-4o", temperature=0)
+tools = [analyze_code]
 
-# Wrap model with DDP
-model = DDP(model.to(rank), device_ids=[rank])`
+agent = create_openai_tools_agent(llm, tools, prompt)
+executor = AgentExecutor(agent=agent, tools=tools)
+
+# Run the agent
+result = executor.invoke({
+    "input": "Analyze this Python function for bugs"
+})`
     },
     {
         language: 'TypeScript',
-        title: 'Real-time WebRTC Video Stream Hook',
+        title: 'React Dashboard with Real-time Updates',
         code:
-`import { useEffect, useRef, useState } from 'react';
+`import { useEffect, useState } from 'react';
 
-function useVideoStream() {
-  const videoRef = useRef<HTMLVideoElement>(null);
-  const [stream, setStream] = useState<MediaStream | null>(null);
+interface EvalResult {
+  model: string;
+  accuracy: number;
+  timestamp: Date;
+}
+
+function useEvalResults(endpoint: string) {
+  const [results, setResults] = useState<EvalResult[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    async function initStream() {
-      try {
-        const mediaStream = await navigator.mediaDevices
-          .getUserMedia({ video: true, audio: false });
-        if (videoRef.current) {
-          videoRef.current.srcObject = mediaStream;
-        }
-        setStream(mediaStream);
-      } catch (err) {
-        console.error('Failed to get video stream:', err);
-      }
-    }
-    initStream();
-    return () => stream?.getTracks().forEach(t => t.stop());
-  }, []);
+    const ws = new WebSocket(endpoint);
 
-  return { videoRef, stream };
+    ws.onmessage = (event) => {
+      const data = JSON.parse(event.data);
+      setResults(prev => [...prev, data]);
+    };
+
+    ws.onopen = () => setLoading(false);
+
+    return () => ws.close();
+  }, [endpoint]);
+
+  return { results, loading };
 }`
     }
 ];
 
 export const WHAT_IM_LEARNING: LearningItem[] = [
     {
-        title: "Large-Scale Model Serving",
-        description: "Diving into technologies like vLLM and TensorRT-LLM for optimizing inference speed and throughput at scale."
+        title: "Agentic AI Systems",
+        description: "Building and evaluating autonomous AI agents that can reason, plan, and execute complex multi-step tasks."
     },
     {
-        title: "Multi-Modal AI Systems",
-        description: "Exploring models that understand and process information from multiple sources like text, images, audio, and video."
+        title: "LLM Evaluation & Safety",
+        description: "Developing frameworks for responsible AI governance and benchmarking AI agent behavior for compliance."
     },
     {
-        title: "Distributed Training Optimization",
-        description: "Advanced techniques in multi-GPU and multi-node training, including gradient compression and pipeline parallelism."
+        title: "Distributed Inference at Scale",
+        description: "Optimizing vLLM inference pipelines across GPU clusters for high-throughput AI agent evaluation."
     }
 ];
 
 export const STATS = [
-    { label: 'Years of Experience', value: 4, suffix: '+' },
-    { label: 'Projects Completed', value: 15, suffix: '+' },
-    { label: 'Technologies Mastered', value: 30, suffix: '+' },
-    { label: 'Model Accuracy Achieved', value: 98, suffix: '%' }
+    { label: 'Years of Experience', value: 5, suffix: '+' },
+    { label: 'AI Code Reviews', value: 1000, suffix: '+' },
+    { label: 'Evaluation Throughput Gain', value: 15, suffix: '%' },
+    { label: 'Automation Accuracy', value: 98, suffix: '%' }
 ];
 
 export const CONTACT_INFO = {
@@ -224,7 +218,7 @@ export const CONTACT_INFO = {
     linkedin: 'https://www.linkedin.com/in/vageeshadatta',
     github: 'https://github.com/vageeshadatta2000',
     phone: '+1(469) 805-1906',
-    location: 'Dallas, Texas'
+    location: 'Dublin, California'
 };
 
 export const PORTFOLIO_CONTEXT = `
