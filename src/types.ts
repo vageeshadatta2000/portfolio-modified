@@ -70,4 +70,15 @@ export interface BlogPost {
         text: string;
         url: string;
     }[];
+    isTechnical?: boolean;
+    formulas?: {
+        name: string;
+        latex: string;
+        description: string;
+    }[];
+    diagrams?: {
+        title: string;
+        url: string;
+        caption: string;
+    }[];
 }

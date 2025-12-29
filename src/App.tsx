@@ -316,7 +316,7 @@ const App: React.FC = () => {
             </section>
 
             {/* Blog Section */}
-            <section className="relative py-32 md:py-48 bg-slate-50 dark:bg-slate-900">
+            <section id="blog" className="relative py-32 md:py-48 bg-slate-50 dark:bg-slate-900">
                 <div className="max-w-5xl mx-auto px-6 lg:px-8">
                     <motion.div className="text-center mb-16">
                         <motion.p
@@ -368,9 +368,16 @@ const App: React.FC = () => {
                                         </span>
                                     </div>
 
-                                    <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-4">
-                                        {post.title}
-                                    </h3>
+                                    <div className="flex items-center gap-3 mb-4">
+                                        <h3 className="text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+                                            {post.title}
+                                        </h3>
+                                        {post.isTechnical && (
+                                            <span className="px-2 py-1 text-xs font-bold text-emerald-600 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-900/30 rounded-md uppercase tracking-wide">
+                                                Technical
+                                            </span>
+                                        )}
+                                    </div>
 
                                     <p className="text-lg text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">
                                         {post.excerpt}
@@ -424,6 +431,77 @@ const App: React.FC = () => {
                                                             </p>
                                                         ))}
                                                     </div>
+
+                                                    {/* Formulas Section */}
+                                                    {post.formulas && post.formulas.length > 0 && (
+                                                        <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+                                                            <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                                                                <svg className="w-5 h-5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.745 3A23.933 23.933 0 003 12c0 3.183.62 6.22 1.745 9M19.5 3c.967 2.78 1.5 5.817 1.5 9s-.533 6.22-1.5 9M8.25 8.885l1.444-.89a.75.75 0 011.105.402l2.402 7.206a.75.75 0 001.104.401l1.445-.889m-8.25.75l.213.09a1.687 1.687 0 002.062-.617l4.45-6.676a1.688 1.688 0 012.062-.618l.213.09" />
+                                                                </svg>
+                                                                Key Formulas
+                                                            </h4>
+                                                            <div className="space-y-4">
+                                                                {post.formulas.map((formula, fIndex) => (
+                                                                    <div
+                                                                        key={fIndex}
+                                                                        className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4 border border-slate-200 dark:border-slate-700"
+                                                                    >
+                                                                        <div className="flex items-start justify-between gap-4">
+                                                                            <div className="flex-1">
+                                                                                <h5 className="font-semibold text-slate-900 dark:text-white mb-2">
+                                                                                    {formula.name}
+                                                                                </h5>
+                                                                                <div className="bg-white dark:bg-slate-800 rounded-lg px-4 py-3 font-mono text-sm md:text-base text-indigo-600 dark:text-indigo-400 overflow-x-auto">
+                                                                                    {formula.latex}
+                                                                                </div>
+                                                                                <p className="text-sm text-slate-500 dark:text-slate-400 mt-2">
+                                                                                    {formula.description}
+                                                                                </p>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {/* Diagrams Section */}
+                                                    {post.diagrams && post.diagrams.length > 0 && (
+                                                        <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
+                                                            <h4 className="text-lg font-semibold text-slate-900 dark:text-white mb-4 flex items-center gap-2">
+                                                                <svg className="w-5 h-5 text-indigo-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
+                                                                </svg>
+                                                                Architecture & Diagrams
+                                                            </h4>
+                                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                                {post.diagrams.map((diagram, dIndex) => (
+                                                                    <div
+                                                                        key={dIndex}
+                                                                        className="bg-white dark:bg-slate-800 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700"
+                                                                    >
+                                                                        <div className="aspect-video bg-slate-100 dark:bg-slate-900 flex items-center justify-center overflow-hidden">
+                                                                            <img
+                                                                                src={diagram.url}
+                                                                                alt={diagram.title}
+                                                                                className="w-full h-full object-contain"
+                                                                                loading="lazy"
+                                                                            />
+                                                                        </div>
+                                                                        <div className="p-4">
+                                                                            <h5 className="font-semibold text-slate-900 dark:text-white mb-1">
+                                                                                {diagram.title}
+                                                                            </h5>
+                                                                            <p className="text-sm text-slate-500 dark:text-slate-400">
+                                                                                {diagram.caption}
+                                                                            </p>
+                                                                        </div>
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
 
                                                     {post.links && post.links.length > 0 && (
                                                         <div className="mt-8 pt-6 border-t border-slate-200 dark:border-slate-700">
