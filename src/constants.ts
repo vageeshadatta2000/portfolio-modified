@@ -20,32 +20,48 @@ export const TYPING_TEXTS = [
     "AI Evaluation Specialist"
 ];
 
-export const ABOUT = `I'm someone who genuinely loves understanding how things work—especially when it comes to AI and the systems that power it. There's something exciting about digging into a complex problem and figuring out an elegant solution.
+export const ABOUT = `I'm someone who genuinely loves understanding how things work, especially when it comes to AI and the systems that power it. There's something exciting about digging into a complex problem and figuring out an elegant solution.
 
-Most of my time goes into building AI systems, but what really gets me going is the learning itself. Whether it's late-night rabbit holes into research papers or experimenting with new frameworks, I'm always trying to pick up something new. I believe the best engineers never stop being students.
+Most of my time goes into building AI systems, but what really gets me going is the learning itself. Whether it's late night rabbit holes into research papers or experimenting with new frameworks, I'm always trying to pick up something new. I believe the best engineers never stop being students.
 
-When I'm not coding, you'll probably find me reading about the latest in LLM research or thinking about where all this AI stuff is actually heading. I try to stay curious and keep pushing myself—there's always more to learn.`;
+When I'm not coding, you'll probably find me reading about the latest in LLM research or thinking about where all this AI stuff is actually heading. I try to stay curious and keep pushing myself. There's always more to learn.`;
 
 export const CURRENTLY_EXPLORING: ExploringItem[] = [
     {
         title: "LLM Post-Training & RLHF",
-        description: "Deep diving into how models are fine-tuned after pre-training—RLHF, DPO, and the techniques that make LLMs actually useful and aligned.",
-        icon: "brain"
+        description: "Deep diving into how models are fine tuned after pre training. RLHF, DPO, and the techniques that make LLMs actually useful and aligned.",
+        icon: "brain",
+        link: {
+            text: "AI Engineer on YouTube",
+            url: "https://www.youtube.com/@aiaboratory"
+        }
     },
     {
         title: "Path to AGI",
         description: "Fascinated by the research and debates around artificial general intelligence. Reading everything I can about scaling laws, emergent capabilities, and what's next.",
-        icon: "rocket"
+        icon: "rocket",
+        link: {
+            text: "AI Engineer on YouTube",
+            url: "https://www.youtube.com/@aiaboratory"
+        }
     },
     {
         title: "Inference Optimization",
-        description: "Exploring how to make models run faster and cheaper—vLLM, quantization, speculative decoding. The gap between research and production is where interesting problems live.",
-        icon: "zap"
+        description: "Exploring how to make models run faster and cheaper. vLLM, quantization, speculative decoding. The gap between research and production is where interesting problems live.",
+        icon: "zap",
+        link: {
+            text: "AI Engineer on YouTube",
+            url: "https://www.youtube.com/@aiaboratory"
+        }
     },
     {
         title: "Quantum Computing",
-        description: "A newer interest, but I'm curious about quantum algorithms and how they might intersect with ML someday. Still wrapping my head around qubits.",
-        icon: "atom"
+        description: "A newer interest, but I'm curious about quantum algorithms and how they might intersect with ML someday. Currently working through the fundamentals.",
+        icon: "atom",
+        link: {
+            text: "Quantum Computing for Everyone by Chris Bernhardt",
+            url: "https://mitpress.mit.edu/9780262539531/quantum-computing-for-everyone/"
+        }
     }
 ];
 

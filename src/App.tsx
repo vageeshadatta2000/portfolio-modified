@@ -187,9 +187,22 @@ const App: React.FC = () => {
                                         <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-2">
                                             {item.title}
                                         </h3>
-                                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed">
+                                        <p className="text-slate-600 dark:text-slate-400 leading-relaxed mb-3">
                                             {item.description}
                                         </p>
+                                        {item.link && (
+                                            <a
+                                                href={item.link.url}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+                                            >
+                                                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25" />
+                                                </svg>
+                                                {item.link.text}
+                                            </a>
+                                        )}
                                     </div>
                                 </div>
                             </motion.div>

@@ -53,4 +53,8 @@ export interface ExploringItem {
     title: string;
     description: string;
     icon: string;
+    link?: {
+        text: string;
+        url: string;
+    };
 }
