@@ -1,32 +1,46 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { ChatMessage } from '../types';
-import { geminiService } from '../services/geminiService';
-import { BotIcon, SendIcon, XIcon, UserIcon, LoaderIcon } from './Icons';
+import { claudeService } from '../services/claudeService';
+import { SparkleIcon, SendIcon, XIcon, UserIcon, LoaderIcon } from './Icons';
+
+const suggestedQuestions = [
+    "What's Vageesha's experience?",
+    "Tell me about the projects",
+    "What tech stack is used?",
+    "How to contact Vageesha?"
+];
 
 export const Chatbot: React.FC = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [messages, setMessages] = useState<ChatMessage[]>([]);
     const [input, setInput] = useState('');
     const [isLoading, setIsLoading] = useState(false);
+    const [isInitialized, setIsInitialized] = useState(false);
     const chatContainerRef = useRef<HTMLDivElement>(null);
     const inputRef = useRef<HTMLInputElement>(null);
 
     const initializeChat = useCallback(async () => {
+        if (isInitialized) return;
+
         setIsLoading(true);
         setMessages([]);
-        const initialMessage = await geminiService.initializeChat();
+        const initialMessage = await claudeService.initializeChat();
         if (initialMessage) {
             setMessages([initialMessage]);
         }
+        setIsInitialized(true);
         setIsLoading(false);
-    }, []);
+    }, [isInitialized]);
 
     useEffect(() => {
-        if (isOpen) {
+        if (isOpen && !isInitialized) {
             initializeChat();
+        }
+        if (isOpen) {
             inputRef.current?.focus();
         }
-    }, [isOpen, initializeChat]);
+    }, [isOpen, initializeChat, isInitialized]);
 
     useEffect(() => {
         if (chatContainerRef.current) {
@@ -34,21 +48,22 @@ export const Chatbot: React.FC = () => {
         }
     }, [messages]);
 
-    const handleSend = async () => {
-        if (input.trim() === '' || isLoading) return;
+    const handleSend = async (customMessage?: string) => {
+        const messageToSend = customMessage || input.trim();
+        if (messageToSend === '' || isLoading) return;
 
-        const userMessage: ChatMessage = { role: 'user', text: input };
+        const userMessage: ChatMessage = { role: 'user', text: messageToSend };
         setMessages(prev => [...prev, userMessage]);
         setInput('');
         setIsLoading(true);
 
-        const stream = geminiService.sendMessageStream(input);
+        const stream = claudeService.sendMessageStream(messageToSend);
         let modelResponse = '';
         setMessages(prev => [...prev, { role: 'model', text: '' }]);
 
         try {
             for await (const chunk of stream) {
-                modelResponse += chunk;
+                modelResponse = chunk;
                 setMessages(prev => {
                     const newMessages = [...prev];
                     newMessages[newMessages.length - 1].text = modelResponse;
@@ -66,67 +81,201 @@ export const Chatbot: React.FC = () => {
             setIsLoading(false);
         }
     };
-    
+
+    const handleSuggestionClick = (question: string) => {
+        handleSend(question);
+    };
+
+    // Floating button when closed
     if (!isOpen) {
         return (
-            <button
+            <motion.button
                 onClick={() => setIsOpen(true)}
-                className="fixed bottom-6 right-6 bg-indigo-600 text-white p-4 rounded-full shadow-lg hover:bg-indigo-700 transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 z-50 animate-subtle-pulse"
-                aria-label="Open AI Assistant"
+                className="fixed bottom-6 right-6 z-50 group"
+                initial={{ scale: 0 }}
+                animate={{ scale: 1 }}
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
             >
-                <BotIcon className="w-8 h-8"/>
-            </button>
+                {/* Pulse ring animation */}
+                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-amber-500 animate-ping opacity-30" />
+
+                {/* Main button */}
+                <div className="relative bg-gradient-to-r from-orange-500 to-amber-500 text-white p-4 rounded-full shadow-lg shadow-orange-500/30 flex items-center justify-center">
+                    <SparkleIcon className="w-7 h-7" />
+                </div>
+
+                {/* Tooltip */}
+                <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-slate-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                    Chat with Claude AI
+                    <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900" />
+                </div>
+            </motion.button>
         );
     }
 
     return (
-        <div className="fixed bottom-6 right-6 w-[calc(100vw-3rem)] h-[calc(100vh-5rem)] max-w-md max-h-[70vh] z-50 flex flex-col animate-fade-in-up">
-            <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col h-full">
-                <header className="flex items-center justify-between p-4 border-b border-slate-200 dark:border-slate-700">
-                    <div className="flex items-center gap-3">
-                        <BotIcon className="w-6 h-6 text-indigo-500"/>
-                        <h2 className="font-bold text-lg text-slate-800 dark:text-white">AI Assistant</h2>
+        <AnimatePresence>
+            <motion.div
+                initial={{ opacity: 0, y: 20, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 20, scale: 0.95 }}
+                className="fixed bottom-6 right-6 w-[calc(100vw-3rem)] h-[calc(100vh-5rem)] max-w-md max-h-[600px] z-50 flex flex-col"
+            >
+                <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col h-full overflow-hidden">
+                    {/* Header */}
+                    <header className="relative bg-gradient-to-r from-orange-500 to-amber-500 p-4">
+                        <div className="flex items-center justify-between">
+                            <div className="flex items-center gap-3">
+                                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
+                                    <SparkleIcon className="w-6 h-6 text-white" />
+                                </div>
+                                <div>
+                                    <h2 className="font-bold text-white">Ask Claude</h2>
+                                    <p className="text-white/80 text-xs">AI Assistant for Vageesha's Portfolio</p>
+                                </div>
+                            </div>
+                            <motion.button
+                                onClick={() => setIsOpen(false)}
+                                className="p-2 rounded-full text-white/80 hover:bg-white/20 transition-colors"
+                                whileHover={{ scale: 1.1 }}
+                                whileTap={{ scale: 0.9 }}
+                            >
+                                <XIcon className="w-5 h-5" />
+                            </motion.button>
+                        </div>
+                    </header>
+
+                    {/* Messages */}
+                    <div
+                        ref={chatContainerRef}
+                        className="flex-grow p-4 overflow-y-auto space-y-4 bg-slate-50 dark:bg-slate-950"
+                    >
+                        {messages.map((msg, index) => (
+                            <motion.div
+                                key={index}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className={`flex items-start gap-3 ${msg.role === 'user' ? 'justify-end' : ''}`}
+                            >
+                                {msg.role === 'model' && (
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 flex items-center justify-center shadow-sm">
+                                        <SparkleIcon className="w-4 h-4 text-white" />
+                                    </div>
+                                )}
+                                <div
+                                    className={`max-w-[80%] px-4 py-3 rounded-2xl ${
+                                        msg.role === 'user'
+                                            ? 'bg-indigo-600 text-white rounded-br-md'
+                                            : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 rounded-bl-md shadow-sm border border-slate-200 dark:border-slate-700'
+                                    }`}
+                                >
+                                    <div className="text-sm break-words whitespace-pre-wrap leading-relaxed">
+                                        {msg.text.split('\n').map((line, i) => {
+                                            // Handle bold text
+                                            const boldParsed = line.split(/\*\*(.*?)\*\*/g).map((part, j) =>
+                                                j % 2 === 1 ? <strong key={j}>{part}</strong> : part
+                                            );
+                                            // Handle bullet points
+                                            if (line.trim().startsWith('•') || line.trim().startsWith('-')) {
+                                                return <div key={i} className="ml-2">{boldParsed}</div>;
+                                            }
+                                            return <div key={i}>{boldParsed}</div>;
+                                        })}
+                                    </div>
+                                </div>
+                                {msg.role === 'user' && (
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
+                                        <UserIcon className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
+                                    </div>
+                                )}
+                            </motion.div>
+                        ))}
+
+                        {/* Loading indicator */}
+                        {isLoading && messages.length > 0 && messages[messages.length - 1].role === 'user' && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className="flex items-start gap-3"
+                            >
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 flex items-center justify-center">
+                                    <SparkleIcon className="w-4 h-4 text-white" />
+                                </div>
+                                <div className="px-4 py-3 rounded-2xl bg-white dark:bg-slate-800 rounded-bl-md shadow-sm border border-slate-200 dark:border-slate-700">
+                                    <div className="flex gap-1">
+                                        <span className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                                        <span className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                                        <span className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )}
+
+                        {/* Suggested questions (only show at start) */}
+                        {messages.length === 1 && !isLoading && (
+                            <motion.div
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ delay: 0.3 }}
+                                className="pt-2"
+                            >
+                                <p className="text-xs text-slate-500 dark:text-slate-400 mb-2">Quick questions:</p>
+                                <div className="flex flex-wrap gap-2">
+                                    {suggestedQuestions.map((question, i) => (
+                                        <motion.button
+                                            key={i}
+                                            onClick={() => handleSuggestionClick(question)}
+                                            className="text-xs px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-slate-600 dark:text-slate-300 hover:bg-orange-50 hover:border-orange-300 dark:hover:bg-orange-900/20 dark:hover:border-orange-500/50 transition-colors"
+                                            whileHover={{ scale: 1.02 }}
+                                            whileTap={{ scale: 0.98 }}
+                                        >
+                                            {question}
+                                        </motion.button>
+                                    ))}
+                                </div>
+                            </motion.div>
+                        )}
                     </div>
-                     <button onClick={() => setIsOpen(false)} className="p-2 rounded-full text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-700">
-                        <XIcon className="w-6 h-6"/>
-                    </button>
-                </header>
-                <div ref={chatContainerRef} className="flex-grow p-4 overflow-y-auto space-y-4">
-                    {messages.map((msg, index) => (
-                        <div key={index} className={`flex items-start gap-3 ${msg.role === 'user' ? 'justify-end' : ''}`}>
-                            {msg.role === 'model' && <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center"><BotIcon className="w-5 h-5 text-indigo-500"/></div>}
-                            <div className={`max-w-xs md:max-w-sm px-4 py-2 rounded-2xl ${msg.role === 'user' ? 'bg-indigo-600 text-white rounded-br-lg' : 'bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-bl-lg'}`}>
-                                <p className="text-sm break-words whitespace-pre-wrap">{msg.text}</p>
-                            </div>
-                            {msg.role === 'user' && <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-600 flex items-center justify-center"><UserIcon className="w-5 h-5 text-slate-600 dark:text-slate-200"/></div>}
-                        </div>
-                    ))}
-                    {isLoading && messages.length > 0 && messages[messages.length-1].role === 'user' && (
-                         <div className="flex items-start gap-3">
-                            <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center"><BotIcon className="w-5 h-5 text-indigo-500"/></div>
-                            <div className="max-w-xs md:max-w-sm px-4 py-2 rounded-2xl bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-slate-100 rounded-bl-lg">
-                               <LoaderIcon className="w-5 h-5 animate-spin"/>
-                            </div>
-                        </div>
-                    )}
+
+                    {/* Input */}
+                    <div className="p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+                        <form
+                            onSubmit={(e) => {
+                                e.preventDefault();
+                                handleSend();
+                            }}
+                            className="flex items-center gap-2"
+                        >
+                            <input
+                                ref={inputRef}
+                                type="text"
+                                value={input}
+                                onChange={(e) => setInput(e.target.value)}
+                                placeholder="Ask about experience, projects, skills..."
+                                disabled={isLoading}
+                                className="w-full px-4 py-2.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm placeholder-slate-400 dark:placeholder-slate-500"
+                            />
+                            <motion.button
+                                type="submit"
+                                disabled={isLoading || !input.trim()}
+                                className="bg-gradient-to-r from-orange-500 to-amber-500 text-white p-2.5 rounded-xl hover:shadow-lg hover:shadow-orange-500/30 disabled:opacity-50 disabled:cursor-not-allowed transition-shadow"
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                            >
+                                {isLoading ? (
+                                    <LoaderIcon className="w-5 h-5 animate-spin" />
+                                ) : (
+                                    <SendIcon className="w-5 h-5" />
+                                )}
+                            </motion.button>
+                        </form>
+                        <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-2 text-center">
+                            Powered by Claude AI
+                        </p>
+                    </div>
                 </div>
-                <div className="p-4 border-t border-slate-200 dark:border-slate-700">
-                    <form onSubmit={(e) => { e.preventDefault(); handleSend(); }} className="flex items-center gap-2">
-                        <input
-                            ref={inputRef}
-                            type="text"
-                            value={input}
-                            onChange={(e) => setInput(e.target.value)}
-                            placeholder="Ask about my projects..."
-                            disabled={isLoading}
-                            className="w-full px-4 py-2 bg-slate-100 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-full focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                        />
-                        <button type="submit" disabled={isLoading} className="bg-indigo-600 text-white p-3 rounded-full hover:bg-indigo-700 disabled:bg-indigo-300 disabled:cursor-not-allowed transition-colors">
-                           <SendIcon className="w-5 h-5"/>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
+            </motion.div>
+        </AnimatePresence>
     );
 };
