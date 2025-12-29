@@ -11,6 +11,7 @@ import { ResumeViewer } from './components/ResumeViewer';
 import { ProjectDetailModal } from './components/ProjectDetailModal';
 import { Chatbot } from './components/Chatbot';
 import { AnimatedCounter } from './components/AnimatedCounter';
+import { DemoSection } from './components/demos/DemoSection';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
 import { useScrollSpy } from './hooks/useScrollSpy';
 import {
@@ -33,6 +34,7 @@ const App: React.FC = () => {
     useSmoothScroll();
 
     const sectionRefs = [
+        useRef<HTMLElement>(null),
         useRef<HTMLElement>(null),
         useRef<HTMLElement>(null),
         useRef<HTMLElement>(null),
@@ -163,13 +165,61 @@ const App: React.FC = () => {
                 </div>
             </section>
 
+            {/* Interactive Demos Section */}
+            <section
+                id="demos"
+                ref={sectionRefs[4] as React.RefObject<HTMLElement>}
+                className="relative py-32 md:py-48 bg-white dark:bg-slate-950"
+            >
+                <div className="max-w-7xl mx-auto px-6 lg:px-8">
+                    <motion.div className="text-center mb-16">
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            className="text-sm uppercase tracking-[0.2em] text-indigo-600 dark:text-indigo-400 mb-4"
+                        >
+                            Try It Yourself
+                        </motion.p>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.1 }}
+                            className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6"
+                        >
+                            AI Playground
+                        </motion.h2>
+                        <motion.p
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: 0.2 }}
+                            className="text-xl text-slate-600 dark:text-slate-400 max-w-2xl mx-auto"
+                        >
+                            Explore interactive AI/ML demos running entirely in your browser.
+                            No server required - powered by TensorFlow.js.
+                        </motion.p>
+                    </motion.div>
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 40 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.3 }}
+                    >
+                        <DemoSection />
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Skills Section */}
             <StickySection
                 id="skills"
                 title="Skills"
                 subtitle="Technologies I Work With"
             >
-                <div ref={sectionRefs[4] as React.RefObject<HTMLDivElement>}>
+                <div ref={sectionRefs[5] as React.RefObject<HTMLDivElement>}>
                     <SkillsGrid skills={SKILLS} />
                 </div>
             </StickySection>
@@ -177,7 +227,7 @@ const App: React.FC = () => {
             {/* Contact Section */}
             <section
                 id="contact"
-                ref={sectionRefs[5] as React.RefObject<HTMLElement>}
+                ref={sectionRefs[6] as React.RefObject<HTMLElement>}
                 className="relative py-32 md:py-48 bg-slate-50 dark:bg-slate-900"
             >
                 <div className="max-w-7xl mx-auto px-6 lg:px-8">

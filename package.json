@@ -11,6 +11,8 @@
   "dependencies": {
     "@google/genai": "^1.7.0",
     "@gsap/react": "^2.1.2",
+    "@tensorflow-models/toxicity": "^1.2.2",
+    "@tensorflow/tfjs": "^4.22.0",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/preset-links": "^3.1.0",
     "@tsparticles/react": "^3.0.0",
