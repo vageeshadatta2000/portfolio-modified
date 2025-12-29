@@ -13,9 +13,6 @@ class ClaudeService {
 
     constructor() {
         this.apiKey = import.meta.env.VITE_ANTHROPIC_API_KEY || '';
-        if (!this.apiKey) {
-            console.error("VITE_ANTHROPIC_API_KEY environment variable not set.");
-        }
 
         this.systemPrompt = `You are a friendly, enthusiastic, and knowledgeable AI assistant representing Vageesha Datta Ganapaneni's portfolio. You help recruiters, hiring managers, and visitors learn about Vageesha's skills, experience, and projects.
 
@@ -59,11 +56,6 @@ What would you like to know?`;
     }
 
     public async *sendMessageStream(message: string): AsyncGenerator<string, void, unknown> {
-        if (!this.apiKey) {
-            yield "API key not configured. Please add VITE_ANTHROPIC_API_KEY to your environment.";
-            return;
-        }
-
         // Add user message to history
         this.conversationHistory.push({
             role: 'user',
@@ -71,8 +63,7 @@ What would you like to know?`;
         });
 
         try {
-            // Note: Claude API doesn't support streaming directly from browser due to CORS
-            // We'll use a proxy or simulate streaming by yielding chunks
+            // Try to call the real Claude API
             const response = await this.callClaudeAPI(message);
 
             // Add assistant response to history
@@ -89,21 +80,59 @@ What would you like to know?`;
                 accumulated += (i === 0 ? '' : ' ') + words[i];
                 yield accumulated;
                 // Small delay for streaming effect
-                await new Promise(resolve => setTimeout(resolve, 20));
+                await new Promise(resolve => setTimeout(resolve, 15));
             }
         } catch (error) {
             console.error("Error calling Claude API:", error);
-            yield "I'm having trouble connecting right now. Please try again in a moment.";
+            // Fallback to contextual response
+            const fallbackResponse = this.generateContextualResponse(message);
+
+            this.conversationHistory.push({
+                role: 'assistant',
+                content: fallbackResponse
+            });
+
+            const words = fallbackResponse.split(' ');
+            let accumulated = '';
+            for (let i = 0; i < words.length; i++) {
+                accumulated += (i === 0 ? '' : ' ') + words[i];
+                yield accumulated;
+                await new Promise(resolve => setTimeout(resolve, 15));
+            }
         }
     }
 
     private async callClaudeAPI(message: string): Promise<string> {
-        // Since Claude API has CORS restrictions for browser calls,
-        // we'll use a serverless function or proxy in production.
-        // For now, let's use a smart fallback that provides helpful responses
-        // based on the portfolio context.
+        try {
+            const response = await fetch('https://api.anthropic.com/v1/messages', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'x-api-key': this.apiKey,
+                    'anthropic-version': '2023-06-01',
+                    'anthropic-dangerous-direct-browser-access': 'true'
+                },
+                body: JSON.stringify({
+                    model: 'claude-sonnet-4-20250514',
+                    max_tokens: 1024,
+                    system: this.systemPrompt,
+                    messages: this.conversationHistory
+                })
+            });
 
-        return this.generateContextualResponse(message);
+            if (!response.ok) {
+                const errorData = await response.json().catch(() => ({}));
+                console.error("Claude API error response:", errorData);
+                throw new Error(`API request failed: ${response.status}`);
+            }
+
+            const data = await response.json();
+            return data.content[0].text;
+        } catch (error) {
+            console.error("Claude API error:", error);
+            // Fall back to contextual response
+            return this.generateContextualResponse(message);
+        }
     }
 
     private generateContextualResponse(message: string): string {
