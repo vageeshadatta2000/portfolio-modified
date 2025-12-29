@@ -155,55 +155,198 @@ const ProjectVisual: React.FC<{ index: number; isHovered: boolean }> = ({ index,
     // AI Agent Evaluation Framework
     if (index === 2) {
         return (
-            <div className="relative w-48 h-48 md:w-64 md:h-64 flex items-center justify-center">
-                {/* GPU Cluster representation */}
-                <div className="grid grid-cols-3 gap-1.5">
-                    {[...Array(9)].map((_, i) => (
+            <div className="relative w-48 h-48 md:w-64 md:h-64">
+                {/* GPU cluster visualization */}
+                <div className="grid grid-cols-3 gap-2 w-full h-full p-2">
+                    {[0, 1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
                         <motion.div
                             key={i}
-                            className="w-12 h-12 md:w-16 md:h-16 bg-slate-800 dark:bg-slate-200 rounded-lg flex items-center justify-center shadow-md"
+                            className="bg-slate-800 dark:bg-slate-200 rounded-lg flex items-center justify-center"
                             animate={isHovered ? {
-                                backgroundColor: ['#1e293b', '#059669', '#1e293b'],
-                            } : {}}
-                            transition={{ duration: 1, delay: i * 0.1, repeat: isHovered ? Infinity : 0 }}
+                                opacity: [0.5, 1, 0.5],
+                                scale: [0.95, 1, 0.95]
+                            } : { opacity: 0.7, scale: 0.95 }}
+                            transition={{ duration: 0.8, delay: i * 0.1, repeat: isHovered ? Infinity : 0 }}
                         >
-                            <motion.div
-                                className="w-2 h-2 rounded-full bg-emerald-400"
-                                animate={isHovered ? { opacity: [0.3, 1, 0.3] } : { opacity: 0.3 }}
-                                transition={{ duration: 0.5, delay: i * 0.1, repeat: isHovered ? Infinity : 0 }}
-                            />
+                            <svg className="w-6 h-6 text-green-400" viewBox="0 0 24 24" fill="currentColor">
+                                <rect x="4" y="4" width="16" height="16" rx="2" fill="none" stroke="currentColor" strokeWidth="2"/>
+                                <rect x="7" y="7" width="4" height="4" rx="0.5"/>
+                                <rect x="13" y="7" width="4" height="4" rx="0.5"/>
+                                <rect x="7" y="13" width="4" height="4" rx="0.5"/>
+                                <rect x="13" y="13" width="4" height="4" rx="0.5"/>
+                            </svg>
                         </motion.div>
                     ))}
                 </div>
 
-                {/* Data flow lines */}
+                {/* H100 badge */}
                 <motion.div
-                    className="absolute inset-0 pointer-events-none"
-                    animate={isHovered ? { opacity: 1 } : { opacity: 0.3 }}
-                >
-                    <svg className="w-full h-full" viewBox="0 0 100 100">
-                        {[0, 1, 2].map((row) => (
-                            <motion.line
-                                key={row}
-                                x1="10" y1={25 + row * 25} x2="90" y2={25 + row * 25}
-                                stroke="currentColor"
-                                strokeWidth="0.5"
-                                className="text-slate-600 dark:text-slate-400"
-                                strokeDasharray="2"
-                                animate={isHovered ? { strokeDashoffset: [0, -20] } : { strokeDashoffset: 0 }}
-                                transition={{ duration: 1, repeat: Infinity, ease: 'linear' }}
-                            />
-                        ))}
-                    </svg>
-                </motion.div>
-
-                {/* Performance badge */}
-                <motion.div
-                    className="absolute -top-3 -right-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg"
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg"
                     animate={isHovered ? { scale: [1, 1.1, 1] } : { scale: 1 }}
                     transition={{ duration: 0.5, repeat: isHovered ? Infinity : 0 }}
                 >
-                    +15% Throughput
+                    H100 GPUs
+                </motion.div>
+
+                {/* vLLM icon */}
+                <motion.div
+                    className="absolute -bottom-3 -right-3 w-14 h-14 bg-slate-900 dark:bg-white rounded-full flex items-center justify-center shadow-lg"
+                    animate={isHovered ? { rotate: 360 } : { rotate: 0 }}
+                    transition={{ duration: 3, repeat: isHovered ? Infinity : 0, ease: 'linear' }}
+                >
+                    <span className="text-white dark:text-slate-900 text-xs font-bold">vLLM</span>
+                </motion.div>
+            </div>
+        );
+    }
+
+    // InsightBridge - Document Analysis Tool
+    if (index === 3) {
+        return (
+            <div className="relative w-48 h-48 md:w-64 md:h-64">
+                {/* Document stack */}
+                <div className="relative w-full h-full flex items-center justify-center">
+                    {[0, 1, 2].map((i) => (
+                        <motion.div
+                            key={i}
+                            className="absolute bg-white dark:bg-slate-800 rounded-lg shadow-lg border border-slate-200 dark:border-slate-700"
+                            style={{
+                                width: '70%',
+                                height: '80%',
+                                top: `${10 + i * 4}%`,
+                                left: `${15 + i * 3}%`,
+                                zIndex: 3 - i,
+                            }}
+                            animate={isHovered ? {
+                                y: [0, -5, 0],
+                                rotate: [0, i === 0 ? -2 : i === 1 ? 1 : 2, 0]
+                            } : {}}
+                            transition={{ duration: 0.5, delay: i * 0.1 }}
+                        >
+                            {/* Document lines */}
+                            <div className="p-4 space-y-2">
+                                <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded w-3/4" />
+                                <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded w-full" />
+                                <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded w-2/3" />
+                                <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded w-5/6" />
+                            </div>
+                        </motion.div>
+                    ))}
+
+                    {/* Search/AI icon */}
+                    <motion.div
+                        className="absolute -bottom-4 -right-4 w-16 h-16 bg-slate-900 dark:bg-white rounded-full flex items-center justify-center shadow-lg z-10"
+                        animate={isHovered ? { scale: [1, 1.1, 1] } : { scale: 1 }}
+                        transition={{ duration: 0.5, repeat: isHovered ? Infinity : 0 }}
+                    >
+                        <svg className="w-8 h-8 text-white dark:text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                            <circle cx="11" cy="11" r="8" />
+                            <path d="m21 21-4.3-4.3" />
+                        </svg>
+                    </motion.div>
+
+                    {/* RAG indicator */}
+                    <motion.div
+                        className="absolute -top-2 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg"
+                        animate={isHovered ? { opacity: [0.7, 1, 0.7] } : { opacity: 0.7 }}
+                        transition={{ duration: 1, repeat: isHovered ? Infinity : 0 }}
+                    >
+                        RAG Pipeline
+                    </motion.div>
+                </div>
+            </div>
+        );
+    }
+
+    // MediQuery - Healthcare Chatbot
+    if (index === 4) {
+        return (
+            <div className="relative w-48 h-48 md:w-64 md:h-64">
+                {/* Chat interface mockup */}
+                <motion.div
+                    className="absolute inset-0 bg-white dark:bg-slate-800 rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700"
+                    animate={isHovered ? { scale: 1.02 } : { scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    {/* Chat header */}
+                    <div className="h-10 bg-emerald-500 flex items-center px-4">
+                        <div className="w-3 h-3 rounded-full bg-white/80" />
+                        <span className="ml-2 text-white text-xs font-medium">MediQuery</span>
+                    </div>
+
+                    {/* Chat messages */}
+                    <div className="p-3 space-y-2">
+                        {/* User message */}
+                        <motion.div
+                            className="flex justify-end"
+                            animate={isHovered ? { x: [10, 0] } : {}}
+                            transition={{ duration: 0.3 }}
+                        >
+                            <div className="bg-emerald-100 dark:bg-emerald-900/30 rounded-lg px-3 py-2 max-w-[80%]">
+                                <div className="h-2 bg-emerald-300 dark:bg-emerald-700 rounded w-20" />
+                            </div>
+                        </motion.div>
+
+                        {/* Bot message */}
+                        <motion.div
+                            className="flex justify-start"
+                            animate={isHovered ? { x: [-10, 0] } : {}}
+                            transition={{ duration: 0.3, delay: 0.1 }}
+                        >
+                            <div className="bg-slate-100 dark:bg-slate-700 rounded-lg px-3 py-2 max-w-[80%]">
+                                <div className="space-y-1">
+                                    <div className="h-2 bg-slate-300 dark:bg-slate-600 rounded w-24" />
+                                    <div className="h-2 bg-slate-300 dark:bg-slate-600 rounded w-16" />
+                                </div>
+                            </div>
+                        </motion.div>
+
+                        {/* Typing indicator */}
+                        <motion.div
+                            className="flex justify-start"
+                            animate={isHovered ? { opacity: 1 } : { opacity: 0 }}
+                        >
+                            <div className="bg-slate-100 dark:bg-slate-700 rounded-lg px-3 py-2">
+                                <div className="flex gap-1">
+                                    <motion.span
+                                        className="w-2 h-2 bg-slate-400 rounded-full"
+                                        animate={isHovered ? { y: [0, -4, 0] } : {}}
+                                        transition={{ duration: 0.5, repeat: Infinity, delay: 0 }}
+                                    />
+                                    <motion.span
+                                        className="w-2 h-2 bg-slate-400 rounded-full"
+                                        animate={isHovered ? { y: [0, -4, 0] } : {}}
+                                        transition={{ duration: 0.5, repeat: Infinity, delay: 0.15 }}
+                                    />
+                                    <motion.span
+                                        className="w-2 h-2 bg-slate-400 rounded-full"
+                                        animate={isHovered ? { y: [0, -4, 0] } : {}}
+                                        transition={{ duration: 0.5, repeat: Infinity, delay: 0.3 }}
+                                    />
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                </motion.div>
+
+                {/* HIPAA badge */}
+                <motion.div
+                    className="absolute -top-3 -right-3 bg-emerald-500 text-white px-3 py-1 rounded-full text-xs font-bold shadow-lg"
+                    animate={isHovered ? { scale: [1, 1.1, 1] } : { scale: 1 }}
+                    transition={{ duration: 0.5, repeat: isHovered ? Infinity : 0 }}
+                >
+                    HIPAA
+                </motion.div>
+
+                {/* Health icon */}
+                <motion.div
+                    className="absolute -bottom-3 -left-3 w-12 h-12 bg-slate-900 dark:bg-white rounded-full flex items-center justify-center shadow-lg"
+                    animate={isHovered ? { rotate: [0, 10, -10, 0] } : {}}
+                    transition={{ duration: 0.5 }}
+                >
+                    <svg className="w-6 h-6 text-white dark:text-slate-900" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                    </svg>
                 </motion.div>
             </div>
         );

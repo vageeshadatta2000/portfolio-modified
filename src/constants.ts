@@ -122,6 +122,34 @@ export const PROJECTS: Project[] = [
         repoUrl: 'https://github.com/vageeshadatta2000/AgentEval',
         imageSeed: 'AgentEvalFramework',
         tags: ['vLLM', 'H100 GPUs', 'Distributed Systems', 'AI Evaluation', 'Python']
+    },
+    {
+        title: 'InsightBridge',
+        description: 'LLM-powered document analysis tool with RAG pipeline, FAISS vector store, and semantic search capabilities.',
+        detailedDescription: 'Designed and implemented a recursive text chunking pipeline with LangChain\'s RecursiveCharacterTextSplitter, enabling efficient vectorization and semantic retrieval from long-form documents. Integrated FAISS-based vector store for low-latency dense retrieval and constructed a Retrieval-Augmented Generation (RAG) chain with ChatOpenAI to produce grounded, context-aware responses.',
+        learnings: [
+            'LangChain for document processing.',
+            'FAISS vector stores for semantic search.',
+            'RAG pipeline architecture.',
+            'Text chunking strategies for LLMs.'
+        ],
+        repoUrl: 'https://github.com/vageeshadatta2000/InsightBridge',
+        imageSeed: 'InsightBridge',
+        tags: ['LangChain', 'FAISS', 'RAG', 'FastAPI', 'PostgreSQL']
+    },
+    {
+        title: 'MediQuery',
+        description: 'HIPAA-compliant healthcare chatbot with ML-based intent classification and real-time conversational support.',
+        detailedDescription: 'Built a secure, HIPAA-compliant web application using React.js, Flask, and MongoDB, offering patients access to curated health insights and real-time chat-based assistance. Developed a modular React frontend with real-time chat interface, integrating complex state management and optimized GPU batch inference for sub-second response times. Implemented backend Flask APIs using FAISS and SentenceTransformers for dense retrieval, enhancing contextual accuracy by 19% via RAG-based instruction tuning.',
+        learnings: [
+            'Building HIPAA-compliant applications.',
+            'Real-time chat interfaces with React.',
+            'FAISS and SentenceTransformers for retrieval.',
+            'ML-based intent classification.'
+        ],
+        repoUrl: 'https://github.com/vageeshadatta2000/MediQuery',
+        imageSeed: 'MediQuery',
+        tags: ['React.js', 'Flask', 'MongoDB', 'FAISS', 'ML Classification']
     }
 ];
 
@@ -219,6 +247,12 @@ export const CONTACT_INFO = {
     github: 'https://github.com/vageeshadatta2000',
     phone: '+1(469) 805-1906',
     location: 'Dublin, California'
+};
+
+export const TECH_STACK = {
+    frontend: ['React', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    tools: ['Vite', 'TensorFlow.js'],
+    deployment: ['GitHub Pages', 'Vercel']
 };
 
 export const PORTFOLIO_CONTEXT = `

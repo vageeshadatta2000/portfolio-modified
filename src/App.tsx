@@ -22,6 +22,7 @@ import {
     SKILLS,
     CONTACT_INFO,
     STATS,
+    TECH_STACK,
 } from './constants';
 import { Project } from './types';
 
@@ -73,8 +74,8 @@ const App: React.FC = () => {
             <section id="home" ref={sectionRefs[0] as React.RefObject<HTMLElement>}>
                 <AppleHero
                     name="Vageesha Datta"
-                    title="AI/ML Engineer"
-                    subtitle="Building intelligent systems that push the boundaries of what's possible with AI. Specializing in agentic AI evaluation, LLM systems, and distributed infrastructure."
+                    title="Software Engineer"
+                    subtitle="Building scalable, high-performance software systems. Specializing in full-stack development, cloud infrastructure, and data-driven applications."
                 />
             </section>
 
@@ -238,8 +239,39 @@ const App: React.FC = () => {
                 </div>
             </section>
 
+            {/* Built With Section */}
+            <section className="py-16 bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+                <div className="max-w-4xl mx-auto px-6 lg:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-center"
+                    >
+                        <h3 className="text-lg font-semibold text-slate-900 dark:text-white mb-6">
+                            Built With
+                        </h3>
+                        <div className="flex flex-wrap justify-center gap-3 mb-8">
+                            {[...TECH_STACK.frontend, ...TECH_STACK.tools].map((tech, i) => (
+                                <span
+                                    key={i}
+                                    className="px-4 py-2 text-sm font-medium text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded-full"
+                                >
+                                    {tech}
+                                </span>
+                            ))}
+                        </div>
+                        <p className="text-sm text-slate-500 dark:text-slate-400">
+                            This portfolio was designed and built by Vageesha using modern web technologies.
+                            <br />
+                            Interactive AI demos powered by TensorFlow.js. AI assistant powered by Claude.
+                        </p>
+                    </motion.div>
+                </div>
+            </section>
+
             {/* Footer */}
-            <footer className="py-12 border-t border-slate-200 dark:border-slate-800">
+            <footer className="py-8 border-t border-slate-200 dark:border-slate-800">
                 <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
                     <p className="text-slate-500 dark:text-slate-400 text-sm">
                         © {new Date().getFullYear()} Vageesha Datta Ganapaneni. All rights reserved.
