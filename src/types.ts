@@ -58,3 +58,16 @@ export interface ExploringItem {
         url: string;
     };
 }
+
+export interface BlogPost {
+    title: string;
+    excerpt: string;
+    date: string;
+    readTime: string;
+    tags: string[];
+    content: string;
+    links?: {
+        text: string;
+        url: string;
+    }[];
+}

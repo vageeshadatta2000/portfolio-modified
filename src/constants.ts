@@ -1,4 +1,4 @@
-import { NavLink, Education, Experience, Project, Skill, CodeSnippet, LearningItem, ExploringItem } from './types';
+import { NavLink, Education, Experience, Project, Skill, CodeSnippet, LearningItem, ExploringItem, BlogPost } from './types';
 
 export const NAV_LINKS: NavLink[] = [
     { id: 'home', title: 'Home' },
@@ -62,6 +62,87 @@ export const CURRENTLY_EXPLORING: ExploringItem[] = [
             text: "Reading: Quantum Computing for Everyone",
             url: "https://mitpress.mit.edu/9780262539531/quantum-computing-for-everyone/"
         }
+    }
+];
+
+export const BLOG_POSTS: BlogPost[] = [
+    {
+        title: "Why RLHF Changed Everything for LLMs",
+        excerpt: "Breaking down how Reinforcement Learning from Human Feedback transformed language models from impressive text predictors to genuinely useful assistants. A look at the intuition behind the technique.",
+        date: "Dec 2024",
+        readTime: "8 min read",
+        tags: ["RLHF", "LLMs", "Alignment"],
+        content: `When GPT-3 came out, it was impressive but also frustrating. It could write poetry, but it would also confidently make things up. The missing piece wasn't more data or bigger models. It was teaching the model what humans actually want.
+
+RLHF works by first training a reward model on human preferences. You show humans two outputs and ask which one is better. Do this thousands of times, and you have a model that can predict human preferences. Then you use this reward model to fine tune the language model using reinforcement learning.
+
+The key insight is that humans are better at judging quality than describing it. We can easily say "this response is more helpful" but struggle to write rules for what makes a response helpful. RLHF lets us transfer that implicit knowledge to the model.
+
+What fascinates me is how this connects to the broader alignment problem. If we can teach models to optimize for human preferences on simple tasks, maybe we can extend this to more complex values. The challenge is making sure we're rewarding what we actually want, not just what looks good on the surface.
+
+DPO (Direct Preference Optimization) is now emerging as a simpler alternative that skips the reward model entirely. It's exciting to see the field evolving so quickly.`,
+        links: [
+            { text: "InstructGPT Paper (OpenAI)", url: "https://arxiv.org/abs/2203.02155" },
+            { text: "RLHF Original Paper", url: "https://arxiv.org/abs/1706.03741" },
+            { text: "DPO: Direct Preference Optimization", url: "https://arxiv.org/abs/2305.18290" },
+            { text: "Anthropic's Constitutional AI", url: "https://arxiv.org/abs/2212.08073" }
+        ]
+    },
+    {
+        title: "RAG vs Fine Tuning: When to Use What",
+        excerpt: "After building multiple LLM applications, here's my mental model for deciding between retrieval augmented generation and fine tuning. Spoiler: it's usually RAG first.",
+        date: "Nov 2024",
+        readTime: "6 min read",
+        tags: ["RAG", "Fine-tuning", "LLMs"],
+        content: `Every time I start a new LLM project, the same question comes up: should we fine tune a model or use RAG? After building several systems, I've developed a simple framework.
+
+Use RAG when:
+• Your knowledge base changes frequently
+• You need citations and source attribution
+• You want to avoid hallucinations about facts
+• You have limited compute budget
+
+Use fine tuning when:
+• You need to change the model's behavior or style
+• You're teaching domain specific reasoning patterns
+• Latency is critical (no retrieval step)
+• You have high quality training data
+
+The reality is most applications should start with RAG. It's faster to prototype, easier to debug, and you can update knowledge without retraining. Fine tuning is powerful but it's also a commitment. You need good data, compute resources, and evaluation pipelines.
+
+What I've learned is that the best systems often combine both. RAG for knowledge, fine tuning for behavior. The model learns how to use retrieved context effectively through fine tuning, while RAG provides the actual information.
+
+The most common mistake I see is jumping to fine tuning too early. Get your RAG pipeline working first. Understand where it fails. Then fine tune to fix specific failure modes.`,
+        links: [
+            { text: "RAG Original Paper", url: "https://arxiv.org/abs/2005.11401" },
+            { text: "LangChain RAG Guide", url: "https://python.langchain.com/docs/tutorials/rag/" },
+            { text: "Hugging Face Fine-tuning Guide", url: "https://huggingface.co/docs/transformers/training" },
+            { text: "RAFT: Adapting LLMs to Domain-Specific RAG", url: "https://arxiv.org/abs/2403.10131" }
+        ]
+    },
+    {
+        title: "What Scaling Laws Tell Us About AGI",
+        excerpt: "Scaling laws predict model performance with surprising accuracy. But what do they really mean for artificial general intelligence? Some thoughts after diving into the research.",
+        date: "Oct 2024",
+        readTime: "10 min read",
+        tags: ["Scaling Laws", "AGI", "Research"],
+        content: `The Chinchilla paper showed something remarkable: if you know how much compute you have, you can predict optimal model size and training data. This predictability is both exciting and a bit unsettling.
+
+On one hand, it suggests we can plan the path to more capable AI. Double compute, get predictable improvements. On the other hand, it raises questions about what these curves actually mean.
+
+Here's what I find interesting. Scaling laws predict loss on next token prediction. But emergent capabilities like reasoning, coding, and following instructions appear suddenly at certain scales. The loss curves are smooth, but the capabilities are step functions.
+
+This disconnect matters for AGI predictions. If we're just extrapolating loss curves, we might miss when qualitatively new capabilities emerge. Or we might be surprised when expected capabilities don't materialize.
+
+My current thinking: scaling laws are useful for predicting the "floor" of capability. A model at scale X will be at least as capable as the curve predicts. But breakthroughs in architecture, training, or data quality can push performance above the curve.
+
+The path to AGI probably isn't just more compute. It's finding the right combination of scale, architecture, and training approaches. The scaling laws give us a baseline to improve upon.`,
+        links: [
+            { text: "Chinchilla Scaling Laws Paper", url: "https://arxiv.org/abs/2203.15556" },
+            { text: "GPT-4 Technical Report", url: "https://arxiv.org/abs/2303.08774" },
+            { text: "Emergent Abilities of LLMs", url: "https://arxiv.org/abs/2206.07682" },
+            { text: "Kaplan et al. Neural Scaling Laws", url: "https://arxiv.org/abs/2001.08361" }
+        ]
     }
 ];
 
