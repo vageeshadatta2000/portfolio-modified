@@ -32,8 +32,8 @@ export const CURRENTLY_EXPLORING: ExploringItem[] = [
         description: "Deep diving into how models are fine tuned after pre training. RLHF, DPO, and the techniques that make LLMs actually useful and aligned.",
         icon: "brain",
         link: {
-            text: "AI Engineer on YouTube",
-            url: "https://www.youtube.com/@aiaboratory"
+            text: "Learning from AI Engineer (great channel!)",
+            url: "https://www.youtube.com/@aiDotEngineer"
         }
     },
     {
@@ -41,8 +41,8 @@ export const CURRENTLY_EXPLORING: ExploringItem[] = [
         description: "Fascinated by the research and debates around artificial general intelligence. Reading everything I can about scaling laws, emergent capabilities, and what's next.",
         icon: "rocket",
         link: {
-            text: "AI Engineer on YouTube",
-            url: "https://www.youtube.com/@aiaboratory"
+            text: "Learning from AI Engineer (great channel!)",
+            url: "https://www.youtube.com/@aiDotEngineer"
         }
     },
     {
@@ -50,8 +50,8 @@ export const CURRENTLY_EXPLORING: ExploringItem[] = [
         description: "Exploring how to make models run faster and cheaper. vLLM, quantization, speculative decoding. The gap between research and production is where interesting problems live.",
         icon: "zap",
         link: {
-            text: "AI Engineer on YouTube",
-            url: "https://www.youtube.com/@aiaboratory"
+            text: "Learning from AI Engineer (great channel!)",
+            url: "https://www.youtube.com/@aiDotEngineer"
         }
     },
     {
@@ -59,7 +59,7 @@ export const CURRENTLY_EXPLORING: ExploringItem[] = [
         description: "A newer interest, but I'm curious about quantum algorithms and how they might intersect with ML someday. Currently working through the fundamentals.",
         icon: "atom",
         link: {
-            text: "Quantum Computing for Everyone by Chris Bernhardt",
+            text: "Reading: Quantum Computing for Everyone",
             url: "https://mitpress.mit.edu/9780262539531/quantum-computing-for-everyone/"
         }
     }
