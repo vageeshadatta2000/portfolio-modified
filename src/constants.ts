@@ -6,7 +6,6 @@ export const NAV_LINKS: NavLink[] = [
     { id: 'experience', title: 'Experience' },
     { id: 'projects', title: 'Projects' },
     { id: 'skills', title: 'Skills' },
-    { id: 'code', title: 'Code' },
     { id: 'contact', title: 'Contact' },
 ];
 
@@ -207,7 +206,7 @@ export const WHAT_IM_LEARNING: LearningItem[] = [
 ];
 
 export const STATS = [
-    { label: 'Years of Experience', value: 5, suffix: '+' },
+    { label: 'Years of Experience', value: 2, suffix: '+' },
     { label: 'AI Code Reviews', value: 1000, suffix: '+' },
     { label: 'Evaluation Throughput Gain', value: 15, suffix: '%' },
     { label: 'Automation Accuracy', value: 98, suffix: '%' }
