@@ -48,3 +48,9 @@ export interface LearningItem {
     title: string;
     description: string;
 }
+
+export interface ExploringItem {
+    title: string;
+    description: string;
+    icon: string;
+}

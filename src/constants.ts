@@ -1,4 +1,4 @@
-import { NavLink, Education, Experience, Project, Skill, CodeSnippet, LearningItem } from './types';
+import { NavLink, Education, Experience, Project, Skill, CodeSnippet, LearningItem, ExploringItem } from './types';
 
 export const NAV_LINKS: NavLink[] = [
     { id: 'home', title: 'Home' },
@@ -20,11 +20,34 @@ export const TYPING_TEXTS = [
     "AI Evaluation Specialist"
 ];
 
-export const ABOUT = `I am passionate about building and evaluating intelligent AI systems that solve real-world problems. My experience spans designing distributed evaluation frameworks for agentic AI models, developing AI-driven automation pipelines, and building interactive dashboards for ML insights.
+export const ABOUT = `I'm someone who genuinely loves understanding how things work—especially when it comes to AI and the systems that power it. There's something exciting about digging into a complex problem and figuring out an elegant solution.
 
-Currently working as an AI Fellow at Handshake, where I conduct machine learning code reviews of AI agents and contribute to responsible AI governance frameworks. Previously at HUD, I designed evaluation frameworks parallelizing rollouts and vLLM inference across H100 GPU clusters, improving evaluation throughput by 15%.
+Most of my time goes into building AI systems, but what really gets me going is the learning itself. Whether it's late-night rabbit holes into research papers or experimenting with new frameworks, I'm always trying to pick up something new. I believe the best engineers never stop being students.
 
-My expertise includes PyTorch, TensorFlow, LangChain, LangGraph, and cloud deployment with Docker and Kubernetes. I enjoy working across the stack—from optimizing model inference with vLLM to crafting interactive React dashboards—because it allows me to turn complex AI research into usable, impactful products.`;
+When I'm not coding, you'll probably find me reading about the latest in LLM research or thinking about where all this AI stuff is actually heading. I try to stay curious and keep pushing myself—there's always more to learn.`;
+
+export const CURRENTLY_EXPLORING: ExploringItem[] = [
+    {
+        title: "LLM Post-Training & RLHF",
+        description: "Deep diving into how models are fine-tuned after pre-training—RLHF, DPO, and the techniques that make LLMs actually useful and aligned.",
+        icon: "brain"
+    },
+    {
+        title: "Path to AGI",
+        description: "Fascinated by the research and debates around artificial general intelligence. Reading everything I can about scaling laws, emergent capabilities, and what's next.",
+        icon: "rocket"
+    },
+    {
+        title: "Inference Optimization",
+        description: "Exploring how to make models run faster and cheaper—vLLM, quantization, speculative decoding. The gap between research and production is where interesting problems live.",
+        icon: "zap"
+    },
+    {
+        title: "Quantum Computing",
+        description: "A newer interest, but I'm curious about quantum algorithms and how they might intersect with ML someday. Still wrapping my head around qubits.",
+        icon: "atom"
+    }
+];
 
 export const EDUCATION: Education[] = [
     {
