@@ -98,17 +98,17 @@ export const Chatbot: React.FC = () => {
                 whileTap={{ scale: 0.95 }}
             >
                 {/* Pulse ring animation */}
-                <span className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-amber-500 animate-ping opacity-30" />
+                <span className="absolute inset-0 rounded-full bg-slate-900 dark:bg-white animate-ping opacity-20" />
 
                 {/* Main button */}
-                <div className="relative bg-gradient-to-r from-orange-500 to-amber-500 text-white p-4 rounded-full shadow-lg shadow-orange-500/30 flex items-center justify-center">
+                <div className="relative bg-slate-900 dark:bg-white text-white dark:text-slate-900 p-4 rounded-full shadow-lg shadow-slate-900/20 dark:shadow-white/20 flex items-center justify-center">
                     <SparkleIcon className="w-7 h-7" />
                 </div>
 
                 {/* Tooltip */}
-                <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-slate-900 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                    Chat with Claude AI
-                    <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900" />
+                <div className="absolute bottom-full right-0 mb-2 px-3 py-1.5 bg-slate-900 dark:bg-white text-white dark:text-slate-900 text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                    Ask me anything
+                    <div className="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-slate-900 dark:border-t-white" />
                 </div>
             </motion.button>
         );
@@ -122,22 +122,22 @@ export const Chatbot: React.FC = () => {
                 exit={{ opacity: 0, y: 20, scale: 0.95 }}
                 className="fixed bottom-6 right-6 w-[calc(100vw-3rem)] h-[calc(100vh-5rem)] max-w-md max-h-[600px] z-50 flex flex-col"
             >
-                <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col h-full overflow-hidden">
+                <div className="bg-white dark:bg-slate-950 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-800 flex flex-col h-full overflow-hidden">
                     {/* Header */}
-                    <header className="relative bg-gradient-to-r from-orange-500 to-amber-500 p-4">
+                    <header className="relative bg-slate-900 dark:bg-white p-4">
                         <div className="flex items-center justify-between">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur flex items-center justify-center">
-                                    <SparkleIcon className="w-6 h-6 text-white" />
+                                <div className="w-10 h-10 rounded-full bg-white/10 dark:bg-slate-900/10 backdrop-blur flex items-center justify-center">
+                                    <SparkleIcon className="w-6 h-6 text-white dark:text-slate-900" />
                                 </div>
                                 <div>
-                                    <h2 className="font-bold text-white">Ask Claude</h2>
-                                    <p className="text-white/80 text-xs">AI Assistant for Vageesha's Portfolio</p>
+                                    <h2 className="font-bold text-white dark:text-slate-900">AI Assistant</h2>
+                                    <p className="text-white/70 dark:text-slate-600 text-xs">Ask about Vageesha's portfolio</p>
                                 </div>
                             </div>
                             <motion.button
                                 onClick={() => setIsOpen(false)}
-                                className="p-2 rounded-full text-white/80 hover:bg-white/20 transition-colors"
+                                className="p-2 rounded-full text-white/70 dark:text-slate-600 hover:bg-white/10 dark:hover:bg-slate-900/10 transition-colors"
                                 whileHover={{ scale: 1.1 }}
                                 whileTap={{ scale: 0.9 }}
                             >
@@ -159,15 +159,15 @@ export const Chatbot: React.FC = () => {
                                 className={`flex items-start gap-3 ${msg.role === 'user' ? 'justify-end' : ''}`}
                             >
                                 {msg.role === 'model' && (
-                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 flex items-center justify-center shadow-sm">
-                                        <SparkleIcon className="w-4 h-4 text-white" />
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-900 dark:bg-white flex items-center justify-center shadow-sm">
+                                        <SparkleIcon className="w-4 h-4 text-white dark:text-slate-900" />
                                     </div>
                                 )}
                                 <div
                                     className={`max-w-[80%] px-4 py-3 rounded-2xl ${
                                         msg.role === 'user'
-                                            ? 'bg-indigo-600 text-white rounded-br-md'
-                                            : 'bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-100 rounded-bl-md shadow-sm border border-slate-200 dark:border-slate-700'
+                                            ? 'bg-slate-900 dark:bg-white text-white dark:text-slate-900 rounded-br-md'
+                                            : 'bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100 rounded-bl-md shadow-sm border border-slate-200 dark:border-slate-800'
                                     }`}
                                 >
                                     <div className="text-sm break-words whitespace-pre-wrap leading-relaxed">
@@ -185,8 +185,8 @@ export const Chatbot: React.FC = () => {
                                     </div>
                                 </div>
                                 {msg.role === 'user' && (
-                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-indigo-100 dark:bg-indigo-900 flex items-center justify-center">
-                                        <UserIcon className="w-4 h-4 text-indigo-600 dark:text-indigo-300" />
+                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+                                        <UserIcon className="w-4 h-4 text-slate-600 dark:text-slate-300" />
                                     </div>
                                 )}
                             </motion.div>
@@ -199,14 +199,14 @@ export const Chatbot: React.FC = () => {
                                 animate={{ opacity: 1, y: 0 }}
                                 className="flex items-start gap-3"
                             >
-                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-r from-orange-500 to-amber-500 flex items-center justify-center">
-                                    <SparkleIcon className="w-4 h-4 text-white" />
+                                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-900 dark:bg-white flex items-center justify-center">
+                                    <SparkleIcon className="w-4 h-4 text-white dark:text-slate-900" />
                                 </div>
-                                <div className="px-4 py-3 rounded-2xl bg-white dark:bg-slate-800 rounded-bl-md shadow-sm border border-slate-200 dark:border-slate-700">
+                                <div className="px-4 py-3 rounded-2xl bg-white dark:bg-slate-900 rounded-bl-md shadow-sm border border-slate-200 dark:border-slate-800">
                                     <div className="flex gap-1">
-                                        <span className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                                        <span className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                                        <span className="w-2 h-2 bg-orange-400 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                                        <span className="w-2 h-2 bg-slate-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
+                                        <span className="w-2 h-2 bg-slate-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
+                                        <span className="w-2 h-2 bg-slate-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
                                     </div>
                                 </div>
                             </motion.div>
@@ -226,7 +226,7 @@ export const Chatbot: React.FC = () => {
                                         <motion.button
                                             key={i}
                                             onClick={() => handleSuggestionClick(question)}
-                                            className="text-xs px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-full text-slate-600 dark:text-slate-300 hover:bg-orange-50 hover:border-orange-300 dark:hover:bg-orange-900/20 dark:hover:border-orange-500/50 transition-colors"
+                                            className="text-xs px-3 py-1.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-full text-slate-600 dark:text-slate-300 hover:bg-slate-100 hover:border-slate-300 dark:hover:bg-slate-800 dark:hover:border-slate-700 transition-colors"
                                             whileHover={{ scale: 1.02 }}
                                             whileTap={{ scale: 0.98 }}
                                         >
@@ -239,7 +239,7 @@ export const Chatbot: React.FC = () => {
                     </div>
 
                     {/* Input */}
-                    <div className="p-4 border-t border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900">
+                    <div className="p-4 border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950">
                         <form
                             onSubmit={(e) => {
                                 e.preventDefault();
@@ -254,12 +254,12 @@ export const Chatbot: React.FC = () => {
                                 onChange={(e) => setInput(e.target.value)}
                                 placeholder="Ask about experience, projects, skills..."
                                 disabled={isLoading}
-                                className="w-full px-4 py-2.5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent text-sm placeholder-slate-400 dark:placeholder-slate-500"
+                                className="w-full px-4 py-2.5 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl focus:outline-none focus:ring-2 focus:ring-slate-400 dark:focus:ring-slate-600 focus:border-transparent text-sm placeholder-slate-400 dark:placeholder-slate-500"
                             />
                             <motion.button
                                 type="submit"
                                 disabled={isLoading || !input.trim()}
-                                className="bg-gradient-to-r from-orange-500 to-amber-500 text-white p-2.5 rounded-xl hover:shadow-lg hover:shadow-orange-500/30 disabled:opacity-50 disabled:cursor-not-allowed transition-shadow"
+                                className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 p-2.5 rounded-xl hover:shadow-lg hover:shadow-slate-900/20 dark:hover:shadow-white/20 disabled:opacity-50 disabled:cursor-not-allowed transition-shadow"
                                 whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
                             >
@@ -270,8 +270,9 @@ export const Chatbot: React.FC = () => {
                                 )}
                             </motion.button>
                         </form>
-                        <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-2 text-center">
-                            Powered by Claude AI
+                        {/* Tech stack footer */}
+                        <p className="text-[10px] text-slate-400 dark:text-slate-600 text-center mt-2">
+                            Built with React, TypeScript & Tailwind CSS
                         </p>
                     </div>
                 </div>

@@ -46,7 +46,7 @@ Start by giving a warm, brief greeting and mentioning 2-3 things visitors can as
         this.conversationHistory = [];
 
         // Return a pre-written greeting (faster UX, no API call needed)
-        const greeting = `Hi there! 👋 I'm Vageesha's AI assistant, powered by Claude.
+        const greeting = `Hi there! 👋 I'm Vageesha's AI assistant.
 
 I can tell you about:
 • **Experience** - Work at Handshake, HUD, Allen Institute for AI, and IBM
