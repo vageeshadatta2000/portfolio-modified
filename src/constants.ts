@@ -361,6 +361,17 @@ export const EXPERIENCE: Experience[] = [
         ]
     },
     {
+        role: 'Software Engineering Intern',
+        company: 'Rootstack',
+        period: 'Jan 2023 - May 2023',
+        points: [
+            'Built and deployed full-stack modules using React.js and Flask, integrating asynchronous APIs with microservices to handle concurrent requests, improving transaction throughput by 30%.',
+            'Optimized RESTful APIs and SQL queries with indexing, caching, and pooling strategies, reducing latency by 25% and enhancing responsiveness under high-load scenarios.',
+            'Designed scalable, secure data pipelines across distributed services, implementing schema validation and authentication to maintain consistency and reliable cross-service communication.',
+            'Created performance dashboards with AWS CloudWatch and Grafana to monitor service health, reducing fault detection time by 40% and improving deployment stability.'
+        ]
+    },
+    {
         role: 'AI Software Engineer – Automation Team',
         company: 'IBM',
         period: 'Dec 2020 - May 2022',
@@ -384,7 +395,7 @@ export const PROJECTS: Project[] = [
             'IoU-based filtering for accurate element detection.',
             'Visual grounding and text-matching fallback strategies.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/WebAutomationAgent',
+        repoUrl: 'https://github.com/vageeshadatta2000/Web-Automation-Agent',
         imageSeed: 'WebAutomationAgent',
         tags: ['GPT-4o Vision', 'AI Agents', 'Web Automation', 'Python', 'Computer Vision']
     },
@@ -398,7 +409,7 @@ export const PROJECTS: Project[] = [
             'Building context-aware retrieval pipelines.',
             'Evaluation metrics for recommendation systems.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/MoodBoardAI',
+        repoUrl: 'https://github.com/vageeshadatta2000/persona-weaver',
         imageSeed: 'MoodBoardAI',
         tags: ['LLM', 'Graph Embeddings', 'Recommendations', 'Multimodal AI', 'Python']
     },
