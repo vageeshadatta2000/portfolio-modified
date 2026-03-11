@@ -352,6 +352,94 @@ const ProjectVisual: React.FC<{ index: number; isHovered: boolean }> = ({ index,
         );
     }
 
+    // Wildfire Forecast Surrogate - Scientific ML + field visualization
+    if (index === 5) {
+        return (
+            <div className="relative w-48 h-48 md:w-64 md:h-64">
+                <motion.div
+                    className="absolute inset-0 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 bg-gradient-to-br from-amber-100 via-orange-50 to-slate-100 dark:from-slate-800 dark:via-slate-900 dark:to-slate-800 shadow-2xl"
+                    animate={isHovered ? { scale: 1.02 } : { scale: 1 }}
+                    transition={{ duration: 0.3 }}
+                >
+                    {/* Terrain grid */}
+                    <div className="absolute inset-0 opacity-70">
+                        {[...Array(9)].map((_, i) => (
+                            <div
+                                key={`h-${i}`}
+                                className="absolute left-0 right-0 border-t border-slate-500/20 dark:border-slate-400/20"
+                                style={{ top: `${(i + 1) * 10}%` }}
+                            />
+                        ))}
+                        {[...Array(9)].map((_, i) => (
+                            <div
+                                key={`v-${i}`}
+                                className="absolute top-0 bottom-0 border-l border-slate-500/20 dark:border-slate-400/20"
+                                style={{ left: `${(i + 1) * 10}%` }}
+                            />
+                        ))}
+                    </div>
+
+                    {/* Flow bands */}
+                    {[0, 1, 2].map((band) => (
+                        <motion.div
+                            key={band}
+                            className="absolute h-7 rounded-full blur-sm"
+                            style={{
+                                top: `${26 + band * 18}%`,
+                                left: '-25%',
+                                width: '150%',
+                                background:
+                                    band === 1
+                                        ? 'linear-gradient(90deg, rgba(251,191,36,0.45), rgba(245,158,11,0.35), rgba(30,41,59,0.25))'
+                                        : 'linear-gradient(90deg, rgba(30,41,59,0.28), rgba(59,130,246,0.2), rgba(30,41,59,0.2))',
+                            }}
+                            animate={isHovered ? { x: [0, 16, 0], y: [0, band % 2 === 0 ? -4 : 4, 0] } : { x: 0, y: 0 }}
+                            transition={{ duration: 2.2, delay: band * 0.15, repeat: isHovered ? Infinity : 0 }}
+                        />
+                    ))}
+
+                    {/* Hotspot particles */}
+                    {[0, 1, 2, 3, 4, 5].map((p) => (
+                        <motion.div
+                            key={p}
+                            className="absolute w-2.5 h-2.5 rounded-full bg-orange-500 shadow-[0_0_10px_rgba(249,115,22,0.8)]"
+                            style={{
+                                left: `${16 + p * 12}%`,
+                                top: `${18 + (p % 3) * 22}%`,
+                            }}
+                            animate={
+                                isHovered
+                                    ? { scale: [1, 1.5, 1], opacity: [0.6, 1, 0.6], y: [0, -3, 0] }
+                                    : { scale: 1, opacity: 0.7, y: 0 }
+                            }
+                            transition={{ duration: 1, delay: p * 0.08, repeat: isHovered ? Infinity : 0 }}
+                        />
+                    ))}
+                </motion.div>
+
+                {/* Scientific ML badge */}
+                <motion.div
+                    className="absolute -top-3 left-1/2 -translate-x-1/2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-3 py-1 rounded-full text-xs font-bold shadow-lg"
+                    animate={isHovered ? { scale: [1, 1.08, 1] } : { scale: 1 }}
+                    transition={{ duration: 0.7, repeat: isHovered ? Infinity : 0 }}
+                >
+                    Scientific ML
+                </motion.div>
+
+                {/* Wind vector icon */}
+                <motion.div
+                    className="absolute -bottom-3 -right-3 w-12 h-12 bg-slate-900 dark:bg-white rounded-full flex items-center justify-center shadow-lg"
+                    animate={isHovered ? { x: [0, 4, 0] } : { x: 0 }}
+                    transition={{ duration: 0.9, repeat: isHovered ? Infinity : 0 }}
+                >
+                    <svg className="w-6 h-6 text-white dark:text-slate-900" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 8h11m0 0-3-3m3 3-3 3M3 16h17m0 0-3-3m3 3-3 3" />
+                    </svg>
+                </motion.div>
+            </div>
+        );
+    }
+
     // Default fallback
     return (
         <motion.div
