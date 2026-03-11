@@ -454,6 +454,20 @@ export const PROJECTS: Project[] = [
         repoUrl: 'https://github.com/vageeshadatta2000/MediQuery',
         imageSeed: 'MediQuery',
         tags: ['React.js', 'Flask', 'MongoDB', 'FAISS', 'ML Classification']
+    },
+    {
+        title: 'Wildfire Forecast Surrogate',
+        description: 'Scientific ML workflow for wildfire spread forecasting with synthetic simulation data, surrogate modeling, and scientific visualization outputs.',
+        detailedDescription: 'Designed and implemented an end-to-end scientific ML project that generates synthetic wildfire simulation fields, trains a lightweight surrogate model to forecast spread dynamics, and exports structured VTK outputs for scientific rendering pipelines. Built an interactive browser demo with multiple scenes (forecast progression, AMR-style hierarchy visualization, and flow-field streamlines) and automated rendering workflows using ParaView\'s Python API for reproducible screenshots, animations, and saved visualization state.',
+        learnings: [
+            'Building simulation-driven ML prototypes for scientific domains.',
+            'Designing surrogate models for spatiotemporal forecasting.',
+            'Exporting and working with VTK structured-point scientific data.',
+            'Automating scientific visualization pipelines with ParaView.'
+        ],
+        repoUrl: 'https://github.com/vageeshadatta2000/paraview-wildfire-ml',
+        imageSeed: 'WildfireForecastSurrogate',
+        tags: ['Python', 'Scientific ML', 'ParaView', 'VTK', 'Surrogate Modeling']
     }
 ];
 
