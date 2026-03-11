@@ -465,7 +465,7 @@ export const PROJECTS: Project[] = [
             'Exporting and working with VTK structured-point scientific data.',
             'Automating scientific visualization pipelines with ParaView.'
         ],
-        repoUrl: 'https://github.com/vageeshadatta2000/paraview-wildfire-ml',
+        repoUrl: 'https://github.com/vageeshadatta2000/Scientific-ml-wildfire-forecast',
         imageSeed: 'WildfireForecastSurrogate',
         tags: ['Python', 'Scientific ML', 'ParaView', 'VTK', 'Surrogate Modeling']
     }
